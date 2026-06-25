@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# 运行时数据
+data/history.json

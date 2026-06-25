@@ -1,0 +1,51 @@
+{
+  "site": {
+    "title": "Daily Hub - 每日汇总",
+    "description": "每日 12:00 自动汇总各子页面最新内容",
+    "base_url": "https://chenzhiheng.cn/daily-hub"
+  },
+  "sub_pages": [
+    {
+      "id": "daily-photos",
+      "name": "Daily Photos",
+      "url": "https://chenzhiheng.cn/daily-photos/",
+      "emoji": "📷",
+      "description": "每日摄影作品"
+    },
+    {
+      "id": "daily-algo",
+      "name": "Daily Algo",
+      "url": "https://chenzhiheng.cn/daily-algo/",
+      "emoji": "🧮",
+      "description": "每日算法练习"
+    },
+    {
+      "id": "audio-workshop",
+      "name": "Audio Workshop",
+      "url": "https://chenzhiheng.cn/audio-workshop/",
+      "emoji": "🎧",
+      "description": "音频工作坊"
+    },
+    {
+      "id": "daily-lyric-learning",
+      "name": "Daily Lyric Learning",
+      "url": "https://chenzhiheng.cn/daily-lyric-learning/",
+      "emoji": "🎵",
+      "description": "每日歌词学习"
+    },
+    {
+      "id": "daily-tech-learning",
+      "name": "Daily Tech Learning",
+      "url": "https://chenzhiheng.cn/daily-tech-learning/",
+      "emoji": "💻",
+      "description": "每日技术学习"
+    },
+    {
+      "id": "dayai",
+      "name": "DayAI",
+      "url": "https://chenzhiheng.cn/DayAI/",
+      "emoji": "🤖",
+      "description": "AI 实践记录"
+    }
+  ]
+}

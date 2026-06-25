@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site_title }} - {{ date }}</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hub-header">
+    <h1>{{ site_title }}</h1>
+    <p class="hub-date">{{ date }}</p>
+    <p class="hub-desc">{{ site_description }}</p>
+  </header>
+
+  <main class="hub-grid">
+    {% for page in pages %}
+    <a href="{{ page.url }}" class="hub-card" target="_blank" rel="noopener">
+      <div class="card-emoji">{{ page.emoji }}</div>
+      <h2 class="card-title">{{ page.name }}</h2>
+      <p class="card-desc">{{ page.description }}</p>
+      <div class="card-snippet">
+        <p>{{ page.snippet }}</p>
+        <p class="card-error">{{ page.error }}</p>
+      </div>
+      <div class="card-meta">
+        <span class="card-time">{{ page.updated_at }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </main>
+
+  <footer class="hub-footer">
+    <p>自动更新于 {{ generated_at }} · <a href="archive/">往期归档</a></p>
+  </footer>
+</body>
+</html>
