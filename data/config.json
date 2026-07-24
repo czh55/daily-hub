@@ -46,6 +46,13 @@
       "url": "https://chenzhiheng.cn/DayAI/",
       "emoji": "🤖",
       "description": "AI 实践记录"
+    },
+    {
+      "id": "bilibili-workshow",
+      "name": "Bilibili Workshow",
+      "url": "https://chenzhiheng.cn/bilibili-workshow/",
+      "emoji": "📺",
+      "description": "B 站视频总结墙"
     }
   ]
 }
