@@ -53,6 +53,13 @@
       "url": "https://chenzhiheng.cn/bilibili-workshow/",
       "emoji": "📺",
       "description": "B 站视频总结墙"
+    },
+    {
+      "id": "language-paraphrase",
+      "name": "Language Paraphrase",
+      "url": "https://czh55.github.io/language_paraphrase/",
+      "emoji": "✍️",
+      "description": "语言改写练习"
     }
   ]
 }
