@@ -67,6 +67,13 @@
       "url": "https://chenzhiheng.cn/drama-analysis/",
       "emoji": "🎭",
       "description": "影视戏剧分析"
+    },
+    {
+      "id": "tour-map",
+      "name": "Tour Map",
+      "url": "https://chenzhiheng.cn/tour_map/",
+      "emoji": "🗺️",
+      "description": "冈仁波齐转山行程方案"
     }
   ]
 }
