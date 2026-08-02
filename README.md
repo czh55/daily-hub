@@ -1,6 +1,6 @@
 # Daily Hub — 每日汇总
 
-每日 12:00 自动抓取 6 个子页面最新内容，生成汇总首页，托管于 GitHub Pages。
+每日 12:00 自动抓取 9 个子页面最新内容，生成汇总首页，托管于 GitHub Pages。
 
 ## 子页面
 
@@ -12,6 +12,9 @@
 | Daily Lyric Learning | https://chenzhiheng.cn/daily-lyric-learning/ |
 | Daily Tech Learning | https://chenzhiheng.cn/daily-tech-learning/ |
 | DayAI | https://chenzhiheng.cn/DayAI/ |
+| Bilibili Workshow | https://chenzhiheng.cn/bilibili-workshow/ |
+| Language Paraphrase | https://chenzhiheng.cn/language_paraphrase/ |
+| Drama Analysis | https://chenzhiheng.cn/drama-analysis/ |
 
 ## 项目结构
 

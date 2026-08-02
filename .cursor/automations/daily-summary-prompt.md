@@ -9,7 +9,7 @@ cd daily-hub && python3 scripts/generate.py
 ```
 
 该脚本会：
-- 从 `data/config.json` 读取 6 个子页面配置
+- 从 `data/config.json` 读取 9 个子页面配置
 - 依次 HTTP GET 每个子页面的 URL
 - 从返回的 HTML 中提取标题和正文摘要
 - 渲染 `templates/hub.html` 模板生成汇总页面

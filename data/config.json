@@ -60,6 +60,13 @@
       "url": "https://chenzhiheng.cn/language_paraphrase/",
       "emoji": "✍️",
       "description": "语言改写练习"
+    },
+    {
+      "id": "drama-analysis",
+      "name": "Drama Analysis",
+      "url": "https://chenzhiheng.cn/drama-analysis/",
+      "emoji": "🎭",
+      "description": "影视戏剧分析"
     }
   ]
 }
