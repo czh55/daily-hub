@@ -74,6 +74,13 @@
       "url": "https://chenzhiheng.cn/tour_map/",
       "emoji": "🗺️",
       "description": "冈仁波齐转山行程方案"
+    },
+    {
+      "id": "bear2cursor",
+      "name": "Bear2Cursor",
+      "url": "https://chenzhiheng.cn/bear2cursor/",
+      "emoji": "🐻",
+      "description": "知识世界旅行 · Bear 笔记迁移"
     }
   ]
 }

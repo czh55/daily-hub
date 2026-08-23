@@ -1,6 +1,6 @@
 # Daily Hub — 每日汇总
 
-每日 12:00 自动抓取 9 个子页面最新内容，生成汇总首页，托管于 GitHub Pages。
+每日 12:00 自动抓取 11 个子页面最新内容，生成汇总首页，托管于 GitHub Pages。
 
 ## 子页面
 
@@ -15,6 +15,8 @@
 | Bilibili Workshow | https://chenzhiheng.cn/bilibili-workshow/ |
 | Language Paraphrase | https://chenzhiheng.cn/language_paraphrase/ |
 | Drama Analysis | https://chenzhiheng.cn/drama-analysis/ |
+| Tour Map | https://chenzhiheng.cn/tour_map/ |
+| Bear2Cursor | https://chenzhiheng.cn/bear2cursor/ |
 
 ## 项目结构
 
