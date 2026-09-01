@@ -111,7 +111,6 @@ class Home {
     this.renderer.toneMappingExposure = 1;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    window.__home = this;
     wrap.appendChild(this.renderer.domElement);
 
     this.labelRenderer = new CSS2DRenderer();
