@@ -49,12 +49,9 @@ function woodTexture(THREE, opts) {
   const d = img.data;
   for (let i = 0; i < d.length; i += 4) {
     const n = (rnd() - 0.5) * 14;
-    d[i] = Math.max(0, Math.min(180, d[i] + n));
-    d[i + 1] = Math.max(0, Math.min(160, d[i + 1] + n * 0.85));
-    d[i + 2] = Math.max(0, Math.min(130, d[i + 2] + n * 0.6));
-    d[i] *= 0.82;
-    d[i + 1] *= 0.8;
-    d[i + 2] *= 0.78;
+    d[i] = Math.max(0, Math.min(210, d[i] + n));
+    d[i + 1] = Math.max(0, Math.min(190, d[i + 1] + n * 0.85));
+    d[i + 2] = Math.max(0, Math.min(160, d[i + 2] + n * 0.6));
   }
   ctx.putImageData(img, 0, 0);
 
@@ -87,135 +84,90 @@ function fabricTexture(THREE, hex, seed) {
   return tex;
 }
 
-function std(THREE, map, color, roughness = 0.88) {
-  return new THREE.MeshStandardMaterial({
+function lamb(THREE, map, color) {
+  return new THREE.MeshBasicMaterial({
     map,
     color,
-    roughness,
-    metalness: 0.0,
-    envMapIntensity: 0,
   });
+}
+
+function matte(THREE, color) {
+  return new THREE.MeshBasicMaterial({ color });
 }
 
 export function createMaterials(THREE) {
   const floorMap = woodTexture(THREE, {
-    c1: "#2b1d13",
-    c2: "#3f2a1a",
-    c3: "#1b120c",
+    c1: "#6e4d32",
+    c2: "#8a6240",
+    c3: "#4a3220",
     seed: 11,
   });
   floorMap.repeat.set(6, 5);
 
   const oakMap = woodTexture(THREE, {
-    c1: "#3a2819",
-    c2: "#4a3420",
-    c3: "#24180f",
+    c1: "#7a5536",
+    c2: "#9a6c44",
+    c3: "#533820",
     seed: 22,
   });
   oakMap.repeat.set(2, 1);
 
   const teakMap = woodTexture(THREE, {
-    c1: "#2e2015",
-    c2: "#3c2a1b",
-    c3: "#1a120c",
+    c1: "#644830",
+    c2: "#7d5a38",
+    c3: "#3f2c1c",
     seed: 33,
   });
 
   const extMap = woodTexture(THREE, {
-    c1: "#22180f",
-    c2: "#2e2116",
-    c3: "#140f0a",
+    c1: "#5a422c",
+    c2: "#705234",
+    c3: "#3a2a1c",
     seed: 44,
   });
   extMap.repeat.set(3, 2);
 
   const deckMap = woodTexture(THREE, {
-    c1: "#2c1e14",
-    c2: "#3a281a",
-    c3: "#1a120c",
+    c1: "#6a4c30",
+    c2: "#865c3a",
+    c3: "#44301e",
     seed: 55,
   });
   deckMap.repeat.set(3, 2);
 
   return {
-    floor: std(THREE, floorMap, 0xb0a090, 0.9),
-    oak: std(THREE, oakMap, 0xa89880, 0.86),
-    teak: std(THREE, teakMap, 0x9a8a72, 0.88),
-    exterior: std(THREE, extMap, 0x8a7a68, 0.92),
-    deck: std(THREE, deckMap, 0xa09078, 0.9),
-    plaster: new THREE.MeshStandardMaterial({
-      color: 0x3a342c,
-      roughness: 0.94,
-      metalness: 0,
-    }),
-    plasterDark: new THREE.MeshStandardMaterial({
-      color: 0x2c2822,
-      roughness: 0.95,
-      metalness: 0,
-    }),
-    stone: new THREE.MeshStandardMaterial({
-      color: 0x1c1a16,
-      roughness: 0.96,
-      metalness: 0,
-    }),
-    glass: new THREE.MeshStandardMaterial({
-      color: 0x1a2430,
-      roughness: 0.72,
-      metalness: 0.04,
+    floor: lamb(THREE, floorMap, 0x8f7d66),
+    oak: lamb(THREE, oakMap, 0x8a7358),
+    teak: lamb(THREE, teakMap, 0x7a634c),
+    exterior: lamb(THREE, extMap, 0x6e5a44),
+    deck: lamb(THREE, deckMap, 0x7d684e),
+    plaster: matte(THREE, 0x4a4338),
+    plasterDark: matte(THREE, 0x322c26),
+    stone: matte(THREE, 0x26221c),
+    glass: new THREE.MeshBasicMaterial({
+      color: 0x243040,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.42,
     }),
-    sofa: std(THREE, fabricTexture(THREE, "#2a2420", 7), 0x9a9088, 0.95),
-    linen: std(THREE, fabricTexture(THREE, "#2c2824", 8), 0xa09890, 0.96),
-    cushion: std(THREE, fabricTexture(THREE, "#1e2830", 9), 0x889098, 0.95),
-    moss: std(THREE, fabricTexture(THREE, "#243024", 10), 0x889080, 0.95),
-    rug: std(THREE, fabricTexture(THREE, "#1e1c18", 12), 0x888078, 0.97),
-    grass: new THREE.MeshStandardMaterial({
-      color: 0x141810,
-      roughness: 0.98,
-      metalness: 0,
+    sofa: lamb(THREE, fabricTexture(THREE, "#3a322c", 7), 0xb0a498),
+    linen: lamb(THREE, fabricTexture(THREE, "#3c3832", 8), 0xb8b0a6),
+    cushion: lamb(THREE, fabricTexture(THREE, "#2a3840", 9), 0x98a0a8),
+    moss: lamb(THREE, fabricTexture(THREE, "#304030", 10), 0x98a088),
+    rug: lamb(THREE, fabricTexture(THREE, "#2e2a24", 12), 0x989088),
+    grass: matte(THREE, 0x24301c),
+    dirt: matte(THREE, 0x2a2218),
+    metalMatte: matte(THREE, 0x3a3630),
+    lampShade: new THREE.MeshBasicMaterial({
+      color: 0x8a6840,
     }),
-    dirt: new THREE.MeshStandardMaterial({
-      color: 0x16120c,
-      roughness: 0.97,
-      metalness: 0,
+    screen: new THREE.MeshBasicMaterial({
+      color: 0x243040,
     }),
-    metalMatte: new THREE.MeshStandardMaterial({
-      color: 0x2a2620,
-      roughness: 0.7,
-      metalness: 0.18,
+    photo: new THREE.MeshBasicMaterial({
+      color: 0x4a4034,
     }),
-    lampShade: new THREE.MeshStandardMaterial({
-      color: 0x4a3a28,
-      roughness: 0.9,
-      metalness: 0,
-      emissive: 0x3a2814,
-      emissiveIntensity: 0.18,
-    }),
-    screen: new THREE.MeshStandardMaterial({
-      color: 0x12161a,
-      roughness: 0.85,
-      metalness: 0.05,
-      emissive: 0x1a2430,
-      emissiveIntensity: 0.12,
-    }),
-    photo: new THREE.MeshStandardMaterial({
-      color: 0x2a2620,
-      roughness: 0.88,
-      metalness: 0,
-      emissive: 0x1a1814,
-      emissiveIntensity: 0.08,
-    }),
-    leaf: new THREE.MeshStandardMaterial({
-      color: 0x1a2418,
-      roughness: 0.92,
-      metalness: 0,
-    }),
-    path: new THREE.MeshStandardMaterial({
-      color: 0x2a2620,
-      roughness: 0.95,
-      metalness: 0,
-    }),
+    leaf: matte(THREE, 0x2a3824),
+    path: matte(THREE, 0x3a362e),
   };
 }
 
@@ -523,7 +475,7 @@ function buildStudy(THREE, house, mats) {
   lamp.add(mesh(new THREE.ConeGeometry(0.09, 0.1, 10), mats.lampShade, 0.05, 0.36, 0));
   lamp.position.set(-1.15, 0.76, 0.22);
   g.add(lamp);
-  addLamp(THREE, g, -1.12, 1.12, 0.2, 0xb38950, 1.15, 4.2);
+  addLamp(THREE, g, -1.12, 1.12, 0.2, 0xb38950, 1.55, 4.6);
 
   const chair = new THREE.Group();
   chair.add(box(THREE, 0.42, 0.05, 0.42, mats.oak, 0, 0.46, 0));
@@ -587,7 +539,7 @@ function buildBedroom(THREE, house, mats) {
   g.add(box(THREE, 0.4, 0.48, 0.4, mats.oak, -1.75, 0.24, -0.85));
   const lamp = mesh(new THREE.CylinderGeometry(0.08, 0.1, 0.16, 10), mats.lampShade, -1.75, 0.58, -0.85);
   g.add(lamp);
-  addLamp(THREE, g, -1.75, 0.78, -0.85, 0xb38950, 0.85, 3.4);
+  addLamp(THREE, g, -1.75, 0.78, -0.85, 0xb38950, 1.2, 3.8);
 
   const wardrobe = box(THREE, 1.15, 1.9, 0.48, mats.teak, 1.35, 0.95, -1.15);
   g.add(wardrobe);
@@ -713,7 +665,7 @@ function buildLiving(THREE, house, mats) {
   floorLamp.add(mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.2, 12), mats.lampShade, 0, 1.55, 0));
   floorLamp.position.set(1.55, 0, 1.7);
   g.add(floorLamp);
-  addLamp(THREE, g, 1.55, 1.5, 1.7, 0xb38950, 1.05, 5.2);
+  addLamp(THREE, g, 1.55, 1.5, 1.7, 0xb38950, 1.45, 5.6);
 
   const p = plant(THREE, mats, 1.15);
   p.position.set(1.7, 0, -2.0);
@@ -770,7 +722,7 @@ function buildDining(THREE, house, mats) {
   const pendant = mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.12, 12), mats.lampShade, 0, 1.85, 0);
   g.add(pendant);
   g.add(box(THREE, 0.015, 0.55, 0.015, mats.metalMatte, 0, 2.2, 0));
-  addLamp(THREE, g, 0, 1.75, 0, 0xb38950, 0.95, 4.0);
+  addLamp(THREE, g, 0, 1.75, 0, 0xb38950, 1.25, 4.4);
 
   house.add(g);
 }
@@ -865,16 +817,20 @@ export function createWorld(THREE) {
 }
 
 export function createLights(THREE, scene) {
-  const hemi = new THREE.HemisphereLight(0x2a3a58, 0x1a140e, 0.42);
+  const hemi = new THREE.HemisphereLight(0x4a5a78, 0x2a2014, 1.05);
   scene.add(hemi);
 
-  const ambient = new THREE.AmbientLight(0x1a2438, 0.18);
+  const ambient = new THREE.AmbientLight(0x2c384c, 0.45);
   scene.add(ambient);
 
-  const sun = new THREE.DirectionalLight(0x6a5a48, 0.38);
+  const downFill = new THREE.DirectionalLight(0x5a6a80, 0.4);
+  downFill.position.set(1.5, 18, 2);
+  scene.add(downFill);
+
+  const sun = new THREE.DirectionalLight(0x8a7860, 0.7);
   sun.position.set(-14, 9.5, 4.5);
   sun.castShadow = true;
-  sun.shadow.mapSize.set(2048, 2048);
+  sun.shadow.mapSize.set(1024, 1024);
   sun.shadow.camera.near = 2;
   sun.shadow.camera.far = 40;
   sun.shadow.camera.left = -16;
@@ -885,11 +841,11 @@ export function createLights(THREE, scene) {
   sun.shadow.intensity = 0.72;
   scene.add(sun);
 
-  const skyFill = new THREE.DirectionalLight(0x3a4a68, 0.22);
+  const skyFill = new THREE.DirectionalLight(0x4a5a78, 0.3);
   skyFill.position.set(6, 16, -4);
   scene.add(skyFill);
 
-  const westGlow = new THREE.DirectionalLight(0x4a3a30, 0.16);
+  const westGlow = new THREE.DirectionalLight(0x5a4638, 0.22);
   westGlow.position.set(-10, 3.2, 2);
   scene.add(westGlow);
 }
@@ -910,9 +866,9 @@ export function createSky(THREE) {
     fragmentShader: `
       varying vec3 vDir;
       void main() {
-        vec3 zenith = vec3(0.035, 0.055, 0.10);
-        vec3 horizon = vec3(0.07, 0.085, 0.13);
-        vec3 west = vec3(0.20, 0.12, 0.08);
+        vec3 zenith = vec3(0.055, 0.08, 0.14);
+        vec3 horizon = vec3(0.10, 0.12, 0.18);
+        vec3 west = vec3(0.26, 0.16, 0.10);
         float h = vDir.y;
         vec3 col = mix(horizon, zenith, smoothstep(-0.12, 0.72, h));
         float w = pow(max(dot(normalize(vDir), normalize(vec3(-1.0, 0.12, 0.18))), 0.0), 3.4);

@@ -377,12 +377,12 @@ export const GOD_VIEW = {
 };
 
 export const ROOM_CAMERAS = {
-  study: { position: [-1.15, 4.6, -0.55], target: [-3.7, 0.7, -3.15] },
-  bedroom: { position: [-1.45, 4.5, 2.55], target: [-3.65, 0.65, 0.45] },
-  balcony: { position: [-0.5, 5.0, 1.2], target: [-3.6, 0.55, 3.55] },
-  living: { position: [3.35, 4.8, -1.15], target: [0.85, 0.55, 1.45] },
-  kitchen: { position: [2.25, 4.4, 1.45], target: [4.65, 0.8, 3.35] },
-  dining: { position: [2.05, 4.3, 2.15], target: [4.6, 0.7, 0.25] },
-  bath: { position: [2.15, 4.2, -1.35], target: [4.6, 0.75, -3.1] },
-  hall: { position: [1.1, 4.4, -1.1], target: [1.0, 0.6, -3.85] },
+  study: { position: [-0.4, 5.4, 0.2], target: [-3.7, 0.55, -3.15] },
+  bedroom: { position: [-0.7, 5.2, 3.1], target: [-3.65, 0.5, 0.45] },
+  balcony: { position: [0.2, 5.4, 1.6], target: [-3.6, 0.45, 3.55] },
+  living: { position: [3.6, 5.6, -1.6], target: [0.7, 0.45, 1.35] },
+  kitchen: { position: [2.0, 5.0, 1.2], target: [4.65, 0.65, 3.35] },
+  dining: { position: [1.8, 4.9, 2.4], target: [4.6, 0.55, 0.25] },
+  bath: { position: [1.9, 4.8, -1.1], target: [4.6, 0.6, -3.1] },
+  hall: { position: [1.1, 5.0, -0.6], target: [1.0, 0.5, -3.85] },
 };

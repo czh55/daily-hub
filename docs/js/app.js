@@ -90,7 +90,7 @@ class Home {
   buildScene() {
     const wrap = $("canvas-wrap");
     this.scene = new THREE.Scene();
-    this.scene.fog = new THREE.Fog(0x101820, 22, 48);
+    this.scene.fog = new THREE.Fog(0x101820, 34, 64);
     this.scene.add(createSky(THREE));
 
     const w = window.innerWidth;
@@ -98,15 +98,20 @@ class Home {
     this.camera = new THREE.PerspectiveCamera(38, w / h, 0.1, 80);
     this.camera.position.set(...GOD_VIEW.position);
 
-    this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      powerPreference: "high-performance",
+      preserveDrawingBuffer: true,
+    });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.setSize(w, h);
     this.renderer.setClearColor(0x0a1018, 1);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 0.52;
+    this.renderer.toneMapping = THREE.NoToneMapping;
+    this.renderer.toneMappingExposure = 1;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    window.__home = this;
     wrap.appendChild(this.renderer.domElement);
 
     this.labelRenderer = new CSS2DRenderer();
@@ -331,8 +336,7 @@ class Home {
     this.tourPlaying = true;
     $("btn-tour").classList.add("is-on");
     $("btn-god").classList.remove("is-on");
-    const next = this.tourIndex < 0 ? 0 : this.tourIndex;
-    this.runTourFrom(next);
+    this.runTourFrom(0);
   }
 
   async runTourFrom(start) {
