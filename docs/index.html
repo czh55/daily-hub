@@ -3,175 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Hub - 每日汇总 - 2026-08-23</title>
-  <link rel="stylesheet" href="style.css">
+  <title>志恒的家 · 一日居</title>
+  <meta name="description" content="陈志恒的个人生活记录：一所下午蓝调里的房子。沿动线走完他的一天，遇见摄影、音乐、算法、技术和旅行。">
+  <link rel="stylesheet" href="home.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
-  <header class="hub-header">
-    <h1>Daily Hub - 每日汇总</h1>
-    <p class="hub-date">2026-08-23</p>
-    <p class="hub-desc">每日 12:00 自动汇总各子页面最新内容</p>
-  </header>
+  <div id="loader" class="loader">正在推开这扇门</div>
+  <div id="fallback" class="fallback">
+    <p id="fallback-msg">这所房子需要 WebGL 才能走进去。</p>
+    <a href="list.html">改看卡片目录</a>
+  </div>
 
-  <main class="hub-grid">
-    
-    <a href="https://chenzhiheng.cn/daily-photos/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">📷</div>
-      <h2 class="card-title">Daily Photos</h2>
-      <p class="card-desc">每日摄影作品</p>
-      <div class="card-snippet">
-        <p>每日摄影推荐</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 每日摄影推荐 | Daily Photography</span>
-      </div>
-    </a>
-    
+  <div id="canvas-wrap"></div>
+  <div class="vignette"></div>
 
-    <a href="https://chenzhiheng.cn/daily-algo/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🧮</div>
-      <h2 class="card-title">Daily Algo</h2>
-      <p class="card-desc">每日算法练习</p>
-      <div class="card-snippet">
-        <p>每日一道算法题</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 每日算法 · 变量语义法</span>
-      </div>
-    </a>
-    
+  <div class="hud">
+    <header class="brand">
+      <h1>志恒的家</h1>
+      <p class="meta">互联网研发 · 把一天安放在这所房子里</p>
+      <p class="moment" id="moment">下午 · 蓝调时刻</p>
+    </header>
 
-    <a href="https://chenzhiheng.cn/audio-workshop/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🎧</div>
-      <h2 class="card-title">Audio Workshop</h2>
-      <p class="card-desc">音频工作坊</p>
-      <div class="card-snippet">
-        <p>播客知识墙</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 播客知识墙</span>
-      </div>
-    </a>
-    
+    <p class="hint" id="hint">拖动旋转整座房子 · 点击房间进入 · 或沿一日动线走完他的生活</p>
 
-    <a href="https://chenzhiheng.cn/daily-lyric-learning/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🎵</div>
-      <h2 class="card-title">Daily Lyric Learning</h2>
-      <p class="card-desc">每日歌词学习</p>
-      <div class="card-snippet">
-        <p>Daily Lyric Learning</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: Daily Lyric Learning · 每日英文歌词学习</span>
-      </div>
-    </a>
-    
+    <div class="controls">
+      <button class="btn is-on" id="btn-god" type="button">上帝视角</button>
+      <button class="btn" id="btn-tour" type="button">一日动线</button>
+      <a class="btn" href="list.html">卡片目录</a>
+    </div>
 
-    <a href="https://chenzhiheng.cn/daily-tech-learning/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">💻</div>
-      <h2 class="card-title">Daily Tech Learning</h2>
-      <p class="card-desc">每日技术学习</p>
-      <div class="card-snippet">
-        <p>📚 每日技术深度总结</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 每日技术学习 · AI 增量知识库</span>
-      </div>
-    </a>
-    
+    <aside class="panel" id="panel" aria-live="polite">
+      <p class="panel-kicker" id="panel-kicker"></p>
+      <h2 id="panel-title"></h2>
+      <p class="story" id="panel-story"></p>
+      <div class="links" id="panel-links"></div>
+    </aside>
 
-    <a href="https://chenzhiheng.cn/DayAI/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🤖</div>
-      <h2 class="card-title">DayAI</h2>
-      <p class="card-desc">AI 实践记录</p>
-      <div class="card-snippet">
-        <p>DayAI — 每日 AI 资讯总结，Claude Code、Cursor、Codex 与国内行业动态</p>
-        <p class="card-error"></p>
+    <nav class="timeline" id="timeline" aria-label="一日动线">
+      <div class="timeline-head">
+        <span class="now" id="tl-now">17:40 · 蓝调</span>
+        <span class="now-desc" id="tl-desc">默认停在下午，房子内外都被最后一层天光看见。</span>
       </div>
-      <div class="card-meta">
-        <span class="card-time">标题: DayAI 每日资讯</span>
-      </div>
-    </a>
-    
+      <div class="stops" id="stops"></div>
+    </nav>
+  </div>
 
-    <a href="https://chenzhiheng.cn/bilibili-workshow/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">📺</div>
-      <h2 class="card-title">Bilibili Workshow</h2>
-      <p class="card-desc">B 站视频总结墙</p>
-      <div class="card-snippet">
-        <p>视频总结墙</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 视频总结墙 · B站 / 小红书</span>
-      </div>
-    </a>
-    
-
-    <a href="https://chenzhiheng.cn/language_paraphrase/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">✍️</div>
-      <h2 class="card-title">Language Paraphrase</h2>
-      <p class="card-desc">语言改写练习</p>
-      <div class="card-snippet">
-        <p>场景式英语学习墙</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 场景式英语学习墙</span>
-      </div>
-    </a>
-    
-
-    <a href="https://chenzhiheng.cn/drama-analysis/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🎭</div>
-      <h2 class="card-title">Drama Analysis</h2>
-      <p class="card-desc">影视戏剧分析</p>
-      <div class="card-snippet">
-        <p>剧集剧情总结墙</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 剧集剧情总结墙 · Drama Analysis</span>
-      </div>
-    </a>
-    
-
-    <a href="https://chenzhiheng.cn/tour_map/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🗺️</div>
-      <h2 class="card-title">Tour Map</h2>
-      <p class="card-desc">冈仁波齐转山行程方案</p>
-      <div class="card-snippet">
-        <p>旅行攻略</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 旅行攻略 · 世界地图</span>
-      </div>
-    </a>
-    
-
-    <a href="https://chenzhiheng.cn/bear2cursor/" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">🐻</div>
-      <h2 class="card-title">Bear2Cursor</h2>
-      <p class="card-desc">知识世界旅行 · Bear 笔记迁移</p>
-      <div class="card-snippet">
-        <p>这段旅程经过的每一站，恰好对应你知识库中的一个领域。我们用一张地图来看全貌：</p>
-        <p class="card-error"></p>
-      </div>
-      <div class="card-meta">
-        <span class="card-time">标题: 知识世界旅行</span>
-      </div>
-    </a>
-    
-  </main>
-
-  <footer class="hub-footer">
-    <p>自动更新于 2026-08-23 18:26:19 · <a href="archive/">往期归档</a></p>
-  </footer>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

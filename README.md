@@ -1,6 +1,20 @@
-# Daily Hub — 每日汇总
+# 志恒的家 · Daily Hub
 
-每日 12:00 自动抓取 11 个子页面最新内容，生成汇总首页，托管于 GitHub Pages。
+个人生活记录的 3D 房子首页。默认上帝视角俯看整屋内外，光影停在下午蓝调时刻。沿一日动线走进房间，会同时看到生活本身和对应的分享内容。
+
+每日 12:00 仍会抓取各子页面摘要，写入 `docs/feed.json` 与卡片目录，**不会覆盖** 3D 首页。
+
+## 房子与内容
+
+| 房间 | 一天里的位置 | 对应分享 |
+|------|--------------|----------|
+| 卧室 | 07:00 醒来 / 22:40 睡前 | 摄影分享 |
+| 卫生间 | 07:25 洗漱 | 生活场景 |
+| 厨房 | 07:50 早餐 / 19:00 晚饭 | 生活场景 |
+| 餐厅 | 08:15 早餐听播客 | 播客记录 |
+| 书房 | 上午：算法、技术、AI、语言、笔记 | 算法 / 技术学习 / DayAI / 语言 / Bear2Cursor |
+| 客厅 | 下午与夜里：音乐、视频、剧集 | 歌词 / 视频总结 / 影视分析 |
+| 阳台 | 17:40 蓝调时刻 | 旅行规划 / 摄影 |
 
 ## 子页面
 
@@ -25,20 +39,30 @@ daily-hub/
 ├── .cursor/automations/   # Cursor Automation prompt + trigger 文件
 ├── data/                  # 页面配置、历史记录
 ├── docs/                  # GitHub Pages 根目录
-│   ├── index.html         # 汇总首页（自动生成）
-│   ├── style.css          # 全局样式
+│   ├── index.html         # 3D 房子首页
+│   ├── home.css           # 首页 HUD
+│   ├── js/                # Three.js 场景与动线
+│   ├── feed.json          # 每日摘要（供房子侧栏读取）
+│   ├── list.html          # 卡片目录（自动生成）
+│   ├── style.css          # 卡片目录样式
 │   └── archive/           # 每日归档
 ├── scripts/
-│   └── generate.py        # 核心生成脚本
+│   └── generate.py        # 抓取子页面，写入 feed.json + list.html
 ├── templates/
-│   └── hub.html           # 首页模板
+│   └── hub.html           # 卡片目录模板
 └── .gitignore
 ```
 
 ## 手动运行
 
 ```bash
-cd daily-hub && python3 scripts/generate.py
+python3 scripts/generate.py
+```
+
+本地预览 3D 首页：
+
+```bash
+python3 -m http.server 4173 --directory docs
 ```
 
 ## 自动运行

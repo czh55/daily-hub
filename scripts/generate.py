@@ -17,7 +17,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = PROJECT_ROOT / "data" / "config.json"
 HISTORY_PATH = PROJECT_ROOT / "data" / "history.json"
 TEMPLATE_PATH = PROJECT_ROOT / "templates" / "hub.html"
-OUTPUT_INDEX = PROJECT_ROOT / "docs" / "index.html"
+OUTPUT_LIST = PROJECT_ROOT / "docs" / "list.html"
+OUTPUT_FEED = PROJECT_ROOT / "docs" / "feed.json"
 ARCHIVE_DIR = PROJECT_ROOT / "docs" / "archive"
 
 # 北京时间
@@ -170,6 +171,7 @@ def generate() -> None:
                 updated_at = f"标题: {title}"
         page_data.append(
             {
+                "id": page["id"],
                 "emoji": page["emoji"],
                 "name": page["name"],
                 "url": page["url"],
@@ -177,6 +179,7 @@ def generate() -> None:
                 "snippet": snippet,
                 "error": error if error else "",
                 "updated_at": updated_at,
+                "room": page.get("room", ""),
             }
         )
 
@@ -194,11 +197,32 @@ def generate() -> None:
 
     html_output = render_template(template, context)
 
-    # 写入首页
-    OUTPUT_INDEX.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_INDEX, "w", encoding="utf-8") as f:
+    # 卡片目录（不覆盖 3D 首页 docs/index.html）
+    OUTPUT_LIST.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_LIST, "w", encoding="utf-8") as f:
         f.write(html_output)
-    print(f"  ✓ 首页已生成: {OUTPUT_INDEX}")
+    print(f"  ✓ 卡片目录已生成: {OUTPUT_LIST}")
+
+    feed = {
+        "generated_at": datetime_str,
+        "date": date_str,
+        "pages": [
+            {
+                "id": p["id"],
+                "name": p["name"],
+                "url": p["url"],
+                "description": p["description"],
+                "snippet": p["snippet"],
+                "error": p["error"],
+                "updated_at": p["updated_at"],
+                "room": p["room"],
+            }
+            for p in page_data
+        ],
+    }
+    with open(OUTPUT_FEED, "w", encoding="utf-8") as f:
+        json.dump(feed, f, ensure_ascii=False, indent=2)
+    print(f"  ✓ 内容源已生成: {OUTPUT_FEED}")
 
     # 写入归档
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)

@@ -9,20 +9,23 @@ cd daily-hub && python3 scripts/generate.py
 ```
 
 该脚本会：
-- 从 `data/config.json` 读取 9 个子页面配置
+- 从 `data/config.json` 读取子页面配置
 - 依次 HTTP GET 每个子页面的 URL
 - 从返回的 HTML 中提取标题和正文摘要
-- 渲染 `templates/hub.html` 模板生成汇总页面
-- 输出到 `docs/index.html`
+- 渲染 `templates/hub.html` 模板生成卡片目录
+- 输出到 `docs/list.html`（不要覆盖 3D 房子首页 `docs/index.html`）
+- 写入 `docs/feed.json` 供房子侧栏读取最新摘要
 - 同时保存归档副本到 `docs/archive/YYYY-MM-DD.html`
 - 更新 `data/history.json` 记录生成状态
 
 ### 2. 检查结果
 
 确认以下文件已更新：
-- `docs/index.html` — 首页内容已刷新
+- `docs/list.html` — 卡片目录已刷新
+- `docs/feed.json` — 3D 首页摘要源已刷新
 - `docs/archive/YYYY-MM-DD.html` — 归档副本已生成
 - `data/history.json` — 历史记录已追加
+- `docs/index.html` — 3D 房子首页保持不动
 
 ### 3. 提交并推送
 

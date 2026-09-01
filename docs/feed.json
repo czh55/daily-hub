@@ -1,96 +1,115 @@
 {
-  "site": {
-    "title": "志恒的家 · 每日汇总",
-    "description": "每日 12:00 自动汇总各子页面最新内容",
-    "base_url": "https://chenzhiheng.cn/daily-hub"
-  },
-  "sub_pages": [
+  "generated_at": "2026-08-23 18:26:19",
+  "date": "2026-08-23",
+  "pages": [
     {
       "id": "daily-photos",
       "name": "Daily Photos",
       "url": "https://chenzhiheng.cn/daily-photos/",
-      "emoji": "📷",
       "description": "每日摄影作品",
+      "snippet": "每日摄影推荐",
+      "error": "",
+      "updated_at": "标题: 每日摄影推荐 | Daily Photography",
       "room": "bedroom"
     },
     {
       "id": "daily-algo",
       "name": "Daily Algo",
       "url": "https://chenzhiheng.cn/daily-algo/",
-      "emoji": "🧮",
       "description": "每日算法练习",
+      "snippet": "每日一道算法题",
+      "error": "",
+      "updated_at": "标题: 每日算法 · 变量语义法",
       "room": "study"
     },
     {
       "id": "audio-workshop",
       "name": "Audio Workshop",
       "url": "https://chenzhiheng.cn/audio-workshop/",
-      "emoji": "🎧",
       "description": "音频工作坊",
+      "snippet": "播客知识墙",
+      "error": "",
+      "updated_at": "标题: 播客知识墙",
       "room": "dining"
     },
     {
       "id": "daily-lyric-learning",
       "name": "Daily Lyric Learning",
       "url": "https://chenzhiheng.cn/daily-lyric-learning/",
-      "emoji": "🎵",
       "description": "每日歌词学习",
+      "snippet": "Daily Lyric Learning",
+      "error": "",
+      "updated_at": "标题: Daily Lyric Learning · 每日英文歌词学习",
       "room": "living"
     },
     {
       "id": "daily-tech-learning",
       "name": "Daily Tech Learning",
       "url": "https://chenzhiheng.cn/daily-tech-learning/",
-      "emoji": "💻",
       "description": "每日技术学习",
+      "snippet": "📚 每日技术深度总结",
+      "error": "",
+      "updated_at": "标题: 每日技术学习 · AI 增量知识库",
       "room": "study"
     },
     {
       "id": "dayai",
       "name": "DayAI",
       "url": "https://chenzhiheng.cn/DayAI/",
-      "emoji": "🤖",
       "description": "AI 实践记录",
+      "snippet": "DayAI — 每日 AI 资讯总结，Claude Code、Cursor、Codex 与国内行业动态",
+      "error": "",
+      "updated_at": "标题: DayAI 每日资讯",
       "room": "study"
     },
     {
       "id": "bilibili-workshow",
       "name": "Bilibili Workshow",
       "url": "https://chenzhiheng.cn/bilibili-workshow/",
-      "emoji": "📺",
       "description": "B 站视频总结墙",
+      "snippet": "视频总结墙",
+      "error": "",
+      "updated_at": "标题: 视频总结墙 · B站 / 小红书",
       "room": "living"
     },
     {
       "id": "language-paraphrase",
       "name": "Language Paraphrase",
       "url": "https://chenzhiheng.cn/language_paraphrase/",
-      "emoji": "✍️",
       "description": "语言改写练习",
+      "snippet": "场景式英语学习墙",
+      "error": "",
+      "updated_at": "标题: 场景式英语学习墙",
       "room": "study"
     },
     {
       "id": "drama-analysis",
       "name": "Drama Analysis",
       "url": "https://chenzhiheng.cn/drama-analysis/",
-      "emoji": "🎭",
       "description": "影视戏剧分析",
+      "snippet": "剧集剧情总结墙",
+      "error": "",
+      "updated_at": "标题: 剧集剧情总结墙 · Drama Analysis",
       "room": "living"
     },
     {
       "id": "tour-map",
       "name": "Tour Map",
       "url": "https://chenzhiheng.cn/tour_map/",
-      "emoji": "🗺️",
       "description": "冈仁波齐转山行程方案",
+      "snippet": "旅行攻略",
+      "error": "",
+      "updated_at": "标题: 旅行攻略 · 世界地图",
       "room": "balcony"
     },
     {
       "id": "bear2cursor",
       "name": "Bear2Cursor",
       "url": "https://chenzhiheng.cn/bear2cursor/",
-      "emoji": "🐻",
       "description": "知识世界旅行 · Bear 笔记迁移",
+      "snippet": "这段旅程经过的每一站，恰好对应你知识库中的一个领域。我们用一张地图来看全貌：",
+      "error": "",
+      "updated_at": "标题: 知识世界旅行",
       "room": "study"
     }
   ]
