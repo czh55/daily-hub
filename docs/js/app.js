@@ -54,10 +54,16 @@ class Home {
     this.clock = new THREE.Clock();
   }
 
+  fail(message) {
+    $("loader").style.display = "none";
+    const msg = $("fallback-msg");
+    if (msg) msg.textContent = message;
+    $("fallback").style.display = "flex";
+  }
+
   async start() {
     if (!window.WebGLRenderingContext) {
-      $("loader").style.display = "none";
-      $("fallback").style.display = "flex";
+      this.fail("这所房子需要 WebGL 才能走进去。");
       return;
     }
 
@@ -65,8 +71,7 @@ class Home {
       this.buildScene();
     } catch (err) {
       console.error(err);
-      $("loader").style.display = "none";
-      $("fallback").style.display = "flex";
+      this.fail("房子还没搭起来，先看卡片目录。");
       return;
     }
 

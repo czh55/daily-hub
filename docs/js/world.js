@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { ROOMS } from "./config.js";
 
 const T = 0.12;
