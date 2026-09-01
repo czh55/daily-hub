@@ -57,6 +57,15 @@ body {
   opacity: 0.8;
 }
 
+.hub-header a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.hub-header a:hover {
+  text-decoration: underline;
+}
+
 /* ===== Grid ===== */
 .hub-grid {
   display: grid;
