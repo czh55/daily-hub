@@ -3,35 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site_title }} - {{ date }}</title>
+  <meta name="theme-color" content="#10191f">
+  <meta name="description" content="{{ site_description }}">
+  <title>{{ site_title }} · {{ date }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hub-header">
-    <h1>{{ site_title }}</h1>
-    <p class="hub-date">{{ date }}</p>
-    <p class="hub-desc">{{ site_description }}</p>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="identity" href="#" aria-label="回到房间全景">
+      <span class="identity__mark">衡</span>
+      <span>
+        <strong>陈知衡</strong>
+        <small>互联网研发 · 生活记录者</small>
+      </span>
+    </a>
+    <div class="header-meta">
+      <span class="live-dot"></span>
+      <span>蓝调时刻 · 18:42</span>
+      <span class="meta-divider"></span>
+      <span>{{ date }}</span>
+    </div>
+    <button class="sound-toggle" type="button" aria-pressed="false" title="环境声音为概念交互">
+      <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>室内声场</span>
+    </button>
   </header>
 
-  <main class="hub-grid">
-    {% for page in pages %}
-    <a href="{{ page.url }}" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">{{ page.emoji }}</div>
-      <h2 class="card-title">{{ page.name }}</h2>
-      <p class="card-desc">{{ page.description }}</p>
-      <div class="card-snippet">
-        <p>{{ page.snippet }}</p>
-        <p class="card-error">{{ page.error }}</p>
+  <main class="experience">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">A LIFE, COMPILED DAILY</p>
+      <h1 id="intro-title">在代码之外，<br><em>认真生活。</em></h1>
+      <p class="intro__copy">这是一间可以走进去的个人主页。沿着一天的生活动线，看看我听过的歌、拍下的光、解过的题，和想去的远方。</p>
+      <div class="intro__hint">
+        <span class="mouse-icon" aria-hidden="true"></span>
+        <span>选择房间里的物件开始探索</span>
       </div>
-      <div class="card-meta">
-        <span class="card-time">{{ page.updated_at }}</span>
+    </section>
+
+    <section class="house-wrap" aria-label="可探索的个人生活空间">
+      <div class="house-controls">
+        <button class="view-button is-active" type="button" data-view="overview">全景</button>
+        <button class="view-button" type="button" data-view="day">一天动线</button>
       </div>
-    </a>
-    {% endfor %}
+
+      <div class="house-stage">
+        <div class="sky-window" aria-hidden="true">
+          <span class="sunset"></span>
+          <span class="mountain mountain--one"></span>
+          <span class="mountain mountain--two"></span>
+          <span class="city-lights"></span>
+        </div>
+
+        <div class="house" id="house">
+          <div class="floor">
+            <span class="floor-plank floor-plank--1"></span>
+            <span class="floor-plank floor-plank--2"></span>
+            <span class="floor-plank floor-plank--3"></span>
+            <span class="floor-plank floor-plank--4"></span>
+          </div>
+          <div class="wall wall--back">
+            <span class="wall-picture"><i></i></span>
+            <span class="wall-shelf"><i></i><i></i><i></i></span>
+          </div>
+          <div class="wall wall--left">
+            <span class="window-frame"><i></i><i></i></span>
+            <span class="window-glow"></span>
+          </div>
+
+          <div class="zone-label zone-label--studio">STUDIO / 09:20</div>
+          <div class="zone-label zone-label--living">LIVING / 19:30</div>
+          <div class="zone-label zone-label--quiet">QUIET CORNER / 22:10</div>
+
+          <div class="furniture desk" aria-hidden="true">
+            <span class="desk-top"></span><span class="desk-leg desk-leg--a"></span><span class="desk-leg desk-leg--b"></span>
+            <span class="monitor"><i></i></span><span class="keyboard"></span><span class="mug"></span>
+          </div>
+          <div class="furniture bookcase" aria-hidden="true">
+            <span class="bookcase-frame"></span>
+            <span class="books books--a"><i></i><i></i><i></i><i></i></span>
+            <span class="books books--b"><i></i><i></i><i></i></span>
+          </div>
+          <div class="furniture sofa" aria-hidden="true">
+            <span class="sofa-seat"></span><span class="sofa-back"></span>
+            <span class="cushion cushion--a"></span><span class="cushion cushion--b"></span>
+          </div>
+          <div class="furniture coffee-table" aria-hidden="true">
+            <span class="table-top"></span><span class="vinyl"></span><span class="table-book"></span>
+          </div>
+          <div class="furniture media-unit" aria-hidden="true">
+            <span class="media-body"></span><span class="screen"><i></i></span><span class="speaker speaker--a"></span><span class="speaker speaker--b"></span>
+          </div>
+          <div class="furniture bed" aria-hidden="true">
+            <span class="bed-frame"></span><span class="bed-linen"></span><span class="pillow"></span>
+          </div>
+          <div class="furniture camera-stand" aria-hidden="true">
+            <span class="camera"></span><span class="tripod"></span>
+          </div>
+          <div class="furniture plant" aria-hidden="true">
+            <span class="pot"></span><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="furniture floor-lamp" aria-hidden="true">
+            <span class="lamp-shade"></span><span class="lamp-stem"></span><span class="lamp-light"></span>
+          </div>
+          <div class="furniture rug" aria-hidden="true"></div>
+
+          <svg class="life-route" viewBox="0 0 900 620" role="img" aria-label="从清晨书桌到夜晚床边的一天动线">
+            <path d="M155 142 C250 88, 342 130, 382 210 S470 330, 595 304 S760 342, 718 470 S573 548, 500 500" />
+          </svg>
+
+          {% for page in pages %}
+          <button
+            class="hotspot hotspot--{{ page.id }}"
+            type="button"
+            data-name="{{ page.name }}"
+            data-description="{{ page.description }}"
+            data-snippet="{{ page.snippet }}"
+            data-meta="{{ page.updated_at }}"
+            data-url="{{ page.url }}"
+            data-time="{{ page.time }}"
+            data-zone="{{ page.zone }}"
+            aria-label="打开{{ page.name }}"
+          >
+            <span class="hotspot__pulse"></span>
+            <span class="hotspot__icon">{{ page.emoji }}</span>
+            <span class="hotspot__label"><small>{{ page.time }}</small>{{ page.name }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="scene-legend">
+        <span><i class="legend-key legend-key--active"></i>可探索物件</span>
+        <span><i class="legend-key legend-key--route"></i>我的一天</span>
+        <span>11 个生活切面</span>
+      </div>
+    </section>
   </main>
 
-  <footer class="hub-footer">
-    <p>自动更新于 {{ generated_at }} · <a href="archive/">往期归档</a></p>
+  <aside class="story-panel" aria-hidden="true" aria-labelledby="panel-title">
+    <button class="panel-close" type="button" aria-label="关闭详情">×</button>
+    <div class="panel-index">01 / 11</div>
+    <p class="panel-zone">STUDIO · 09:20</p>
+    <div class="panel-icon" aria-hidden="true">💻</div>
+    <h2 id="panel-title">技术学习</h2>
+    <p class="panel-desc"></p>
+    <div class="panel-latest">
+      <span>最近记录</span>
+      <p></p>
+      <small></small>
+    </div>
+    <a class="panel-link" href="#" target="_blank" rel="noopener">
+      进入这个房间
+      <span aria-hidden="true">↗</span>
+    </a>
+    <div class="panel-nav">
+      <button type="button" data-direction="-1" aria-label="上一个生活切面">←</button>
+      <span></span>
+      <button type="button" data-direction="1" aria-label="下一个生活切面">→</button>
+    </div>
+  </aside>
+  <div class="panel-scrim" aria-hidden="true"></div>
+
+  <footer class="site-footer">
+    <p>生活持续发生，主页每日更新。</p>
+    <div>
+      <span>最后整理 {{ generated_at }}</span>
+      <a href="archive/">翻阅往日</a>
+    </div>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

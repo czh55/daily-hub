@@ -1,86 +1,108 @@
 {
   "site": {
-    "title": "Daily Hub - 每日汇总",
-    "description": "每日 12:00 自动汇总各子页面最新内容",
+    "title": "陈知衡的生活空间",
+    "description": "一位互联网研发的生活记录：音乐、摄影、算法、技术、阅读、视频与旅行",
     "base_url": "https://chenzhiheng.cn/daily-hub"
   },
   "sub_pages": [
     {
       "id": "daily-photos",
-      "name": "Daily Photos",
+      "name": "摄影手记",
       "url": "https://chenzhiheng.cn/daily-photos/",
-      "emoji": "📷",
-      "description": "每日摄影作品"
+      "emoji": "◐",
+      "description": "窗边的光、路上的人，和那些值得停下来的一瞬。",
+      "time": "17:40",
+      "zone": "WINDOW"
     },
     {
       "id": "daily-algo",
-      "name": "Daily Algo",
+      "name": "算法练习",
       "url": "https://chenzhiheng.cn/daily-algo/",
-      "emoji": "🧮",
-      "description": "每日算法练习"
+      "emoji": "∑",
+      "description": "把复杂问题拆开，在纸笔与代码之间寻找清晰的解法。",
+      "time": "10:30",
+      "zone": "STUDIO"
     },
     {
       "id": "audio-workshop",
-      "name": "Audio Workshop",
+      "name": "播客笔记",
       "url": "https://chenzhiheng.cn/audio-workshop/",
-      "emoji": "🎧",
-      "description": "音频工作坊"
+      "emoji": "◖",
+      "description": "通勤与独处时听过的播客，以及留在脑海里的声音。",
+      "time": "19:10",
+      "zone": "LIVING"
     },
     {
       "id": "daily-lyric-learning",
-      "name": "Daily Lyric Learning",
+      "name": "音乐片刻",
       "url": "https://chenzhiheng.cn/daily-lyric-learning/",
-      "emoji": "🎵",
-      "description": "每日歌词学习"
+      "emoji": "♫",
+      "description": "从一首歌开始，记录旋律、歌词和语言的细小触动。",
+      "time": "19:30",
+      "zone": "LIVING"
     },
     {
       "id": "daily-tech-learning",
-      "name": "Daily Tech Learning",
+      "name": "技术学习",
       "url": "https://chenzhiheng.cn/daily-tech-learning/",
-      "emoji": "💻",
-      "description": "每日技术学习"
+      "emoji": "⌘",
+      "description": "研发工作中的新知、实践与值得反复推敲的技术细节。",
+      "time": "09:20",
+      "zone": "STUDIO"
     },
     {
       "id": "dayai",
-      "name": "DayAI",
+      "name": "AI 实践",
       "url": "https://chenzhiheng.cn/DayAI/",
-      "emoji": "🤖",
-      "description": "AI 实践记录"
+      "emoji": "✦",
+      "description": "关注 AI 工具与行业变化，把新能力真正用进日常工作。",
+      "time": "11:45",
+      "zone": "STUDIO"
     },
     {
       "id": "bilibili-workshow",
-      "name": "Bilibili Workshow",
+      "name": "视频观看",
       "url": "https://chenzhiheng.cn/bilibili-workshow/",
-      "emoji": "📺",
-      "description": "B 站视频总结墙"
+      "emoji": "▶",
+      "description": "看过的视频不只留在历史记录里，也沉淀成自己的理解。",
+      "time": "21:00",
+      "zone": "MEDIA"
     },
     {
       "id": "language-paraphrase",
-      "name": "Language Paraphrase",
+      "name": "语言练习",
       "url": "https://chenzhiheng.cn/language_paraphrase/",
-      "emoji": "✍️",
-      "description": "语言改写练习"
+      "emoji": "Aa",
+      "description": "在不同场景中练习表达，让语言逐渐成为自然的习惯。",
+      "time": "14:20",
+      "zone": "BOOKSHELF"
     },
     {
       "id": "drama-analysis",
-      "name": "Drama Analysis",
+      "name": "剧集回味",
       "url": "https://chenzhiheng.cn/drama-analysis/",
-      "emoji": "🎭",
-      "description": "影视戏剧分析"
+      "emoji": "◉",
+      "description": "从角色、叙事和镜头里，重看那些让人着迷的故事。",
+      "time": "21:40",
+      "zone": "MEDIA"
     },
     {
       "id": "tour-map",
-      "name": "Tour Map",
+      "name": "旅行规划",
       "url": "https://chenzhiheng.cn/tour_map/",
-      "emoji": "🗺️",
-      "description": "冈仁波齐转山行程方案"
+      "emoji": "⌖",
+      "description": "把远方摊开在桌面，规划路线，也想象尚未抵达的风景。",
+      "time": "16:30",
+      "zone": "BOOKSHELF"
     },
     {
       "id": "bear2cursor",
-      "name": "Bear2Cursor",
+      "name": "知识整理",
       "url": "https://chenzhiheng.cn/bear2cursor/",
-      "emoji": "🐻",
-      "description": "知识世界旅行 · Bear 笔记迁移"
+      "emoji": "✎",
+      "description": "睡前整理一天的输入，让散落的知识慢慢彼此连接。",
+      "time": "22:10",
+      "zone": "QUIET CORNER"
     }
   ]
 }

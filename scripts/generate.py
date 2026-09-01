@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import html as html_lib
 import os
 import re
 import sys
@@ -122,7 +123,7 @@ def render_template(template: str, context: dict) -> str:
             for pk, pv in page.items():
                 if isinstance(pv, str):
                     block = block.replace(f"{{{{ page.{pk} }}}}", pv)
-            rendered_blocks.append(block)
+            rendered_blocks.append(block.strip())
         result = (
             result[: loop_match.start()]
             + "\n".join(rendered_blocks)
@@ -170,13 +171,16 @@ def generate() -> None:
                 updated_at = f"标题: {title}"
         page_data.append(
             {
-                "emoji": page["emoji"],
-                "name": page["name"],
-                "url": page["url"],
-                "description": page["description"],
-                "snippet": snippet,
-                "error": error if error else "",
-                "updated_at": updated_at,
+                "id": html_lib.escape(page["id"], quote=True),
+                "emoji": html_lib.escape(page["emoji"], quote=True),
+                "name": html_lib.escape(page["name"], quote=True),
+                "url": html_lib.escape(page["url"], quote=True),
+                "description": html_lib.escape(page["description"], quote=True),
+                "snippet": html_lib.escape(snippet, quote=True),
+                "error": html_lib.escape(error if error else "", quote=True),
+                "updated_at": html_lib.escape(updated_at, quote=True),
+                "time": html_lib.escape(page["time"], quote=True),
+                "zone": html_lib.escape(page["zone"], quote=True),
             }
         )
 
@@ -200,11 +204,13 @@ def generate() -> None:
         f.write(html_output)
     print(f"  ✓ 首页已生成: {OUTPUT_INDEX}")
 
-    # 写入归档
+    # 写入归档（归档页比首页多一层目录，修正静态资源路径）
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     archive_path = ARCHIVE_DIR / f"{date_str}.html"
     with open(archive_path, "w", encoding="utf-8") as f:
-        f.write(html_output)
+        archive_output = html_output.replace('href="style.css"', 'href="../style.css"')
+        archive_output = archive_output.replace('src="app.js"', 'src="../app.js"')
+        f.write(archive_output)
     print(f"  ✓ 归档已保存: {archive_path}")
 
     # 更新历史
