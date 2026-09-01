@@ -25,15 +25,28 @@ daily-hub/
 ├── .cursor/automations/   # Cursor Automation prompt + trigger 文件
 ├── data/                  # 页面配置、历史记录
 ├── docs/                  # GitHub Pages 根目录
-│   ├── index.html         # 汇总首页（自动生成）
-│   ├── style.css          # 全局样式
+│   ├── index.html         # 3D 居家个人首页（静态）
+│   ├── css/home.css       # 首页样式
+│   ├── js/                # Three.js 场景与 UI
+│   ├── hub/               # 每日汇总（自动生成）
+│   │   ├── index.html
+│   │   └── style.css
+│   ├── style.css          # 汇总页样式（根目录保留）
 │   └── archive/           # 每日归档
 ├── scripts/
 │   └── generate.py        # 核心生成脚本
 ├── templates/
-│   └── hub.html           # 首页模板
+│   └── hub.html           # 汇总页模板
 └── .gitignore
 ```
+
+## 个人首页
+
+`docs/index.html` 为 3D 居家场景首页：蓝调时刻光影、实木低亮度材质、上帝视角俯瞰全屋，沿「一日动线」漫游各房间并关联内容子站。
+
+- **俯瞰** — 返回上帝视角
+- **一日动线** — 按生活时间顺序自动导览（卧室→厨房→书房→客厅→阅读角→阳台→旅行角）
+- **每日汇总** — 跳转至 `hub/` 自动生成的卡片汇总页
 
 ## 手动运行
 

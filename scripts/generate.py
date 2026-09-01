@@ -17,7 +17,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = PROJECT_ROOT / "data" / "config.json"
 HISTORY_PATH = PROJECT_ROOT / "data" / "history.json"
 TEMPLATE_PATH = PROJECT_ROOT / "templates" / "hub.html"
-OUTPUT_INDEX = PROJECT_ROOT / "docs" / "index.html"
+OUTPUT_INDEX = PROJECT_ROOT / "docs" / "hub" / "index.html"
 ARCHIVE_DIR = PROJECT_ROOT / "docs" / "archive"
 
 # 北京时间
