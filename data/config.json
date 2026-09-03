@@ -92,6 +92,14 @@
       "emoji": "🐻",
       "description": "知识世界旅行 · Bear 笔记迁移",
       "room": "study"
+    },
+    {
+      "id": "daily-meet-question",
+      "name": "Daily Meet Question",
+      "url": "https://chenzhiheng.cn/daily_meet_question/",
+      "emoji": "🎤",
+      "description": "每日面试问答 · 知识点深挖",
+      "room": "study"
     }
   ]
 }

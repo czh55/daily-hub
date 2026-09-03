@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-23 18:26:19",
-  "date": "2026-08-23",
+  "generated_at": "2026-09-03 08:32:22",
+  "date": "2026-09-03",
   "pages": [
     {
       "id": "daily-photos",
@@ -110,6 +110,16 @@
       "snippet": "这段旅程经过的每一站，恰好对应你知识库中的一个领域。我们用一张地图来看全貌：",
       "error": "",
       "updated_at": "标题: 知识世界旅行",
+      "room": "study"
+    },
+    {
+      "id": "daily-meet-question",
+      "name": "Daily Meet Question",
+      "url": "https://chenzhiheng.cn/daily_meet_question/",
+      "description": "每日面试问答 · 知识点深挖",
+      "snippet": "每日一道面试题",
+      "error": "",
+      "updated_at": "标题: 每日面试问答 · 知识点深挖",
       "room": "study"
     }
   ]

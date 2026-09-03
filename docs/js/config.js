@@ -76,6 +76,14 @@ export const CONTENTS = {
     rooms: ["study"],
     fallback: "坐下第一件事，是一道会说话的题。",
   },
+  "daily-meet-question": {
+    id: "daily-meet-question",
+    name: "面试口述",
+    description: "每日面试问答 · 知识点深挖",
+    url: "https://chenzhiheng.cn/daily_meet_question/",
+    rooms: ["study"],
+    fallback: "把一个名词拆开讲，知道名字不够，要答得出深度。",
+  },
   "daily-tech-learning": {
     id: "daily-tech-learning",
     name: "技术学习",
@@ -230,9 +238,9 @@ export const DAY_STOPS = [
     ],
     camera: [ -1.2, 4.5, -0.6 ],
     lookAt: [ -3.7, 0.75, -3.15 ],
-    contentIds: ["daily-algo"],
+    contentIds: ["daily-algo", "daily-meet-question"],
     narrative:
-      "坐下第一件事不是打开消息。是一道题。变量被他起成会说话的名字，上午从此有了形状。",
+      "坐下第一件事不是打开消息。是一道算法题，再练一道面试口述。知道名字不够，要答得出深度。",
   },
   {
     id: "tech",
