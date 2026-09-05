@@ -158,8 +158,8 @@ export const CONTENTS = {
   },
   "tour-map": {
     id: "tour-map",
-    name: "旅行规划",
-    description: "行程与地图",
+    name: "旅行攻略",
+    description: "世界地图",
     url: "https://chenzhiheng.cn/tour_map/",
     rooms: ["balcony"],
     fallback: "蓝调天色里，下一趟路开始显形。",
