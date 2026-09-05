@@ -107,7 +107,7 @@ body {
 
 .hub-room-name {
   font-family: var(--serif);
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: var(--ink);
@@ -139,7 +139,7 @@ body {
 
 .card-title {
   font-family: var(--serif);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--ink);
@@ -203,6 +203,6 @@ body {
   }
 
   .hub-room-name {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
