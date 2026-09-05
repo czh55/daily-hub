@@ -85,14 +85,14 @@ function fabricTexture(THREE, hex, seed) {
 }
 
 function lamb(THREE, map, color) {
-  return new THREE.MeshBasicMaterial({
+  return new THREE.MeshLambertMaterial({
     map,
     color,
   });
 }
 
 function matte(THREE, color) {
-  return new THREE.MeshBasicMaterial({ color });
+  return new THREE.MeshLambertMaterial({ color });
 }
 
 export function createMaterials(THREE) {
@@ -144,7 +144,7 @@ export function createMaterials(THREE) {
     plaster: matte(THREE, 0x4a4338),
     plasterDark: matte(THREE, 0x322c26),
     stone: matte(THREE, 0x26221c),
-    glass: new THREE.MeshBasicMaterial({
+    glass: new THREE.MeshLambertMaterial({
       color: 0x243040,
       transparent: true,
       opacity: 0.42,
@@ -157,13 +157,17 @@ export function createMaterials(THREE) {
     grass: matte(THREE, 0x24301c),
     dirt: matte(THREE, 0x2a2218),
     metalMatte: matte(THREE, 0x3a3630),
-    lampShade: new THREE.MeshBasicMaterial({
+    lampShade: new THREE.MeshLambertMaterial({
       color: 0x8a6840,
+      emissive: 0xb38950,
+      emissiveIntensity: 0.22,
     }),
-    screen: new THREE.MeshBasicMaterial({
+    screen: new THREE.MeshLambertMaterial({
       color: 0x243040,
+      emissive: 0x1a2430,
+      emissiveIntensity: 0.18,
     }),
-    photo: new THREE.MeshBasicMaterial({
+    photo: new THREE.MeshLambertMaterial({
       color: 0x4a4034,
     }),
     leaf: matte(THREE, 0x2a3824),
@@ -191,14 +195,6 @@ function mark(obj, data) {
     if (c.isMesh) c.userData = { ...c.userData, ...data, clickable: true };
   });
   return obj;
-}
-
-function addLamp(THREE, parent, x, y, z, color, intensity, distance) {
-  const light = new THREE.PointLight(color, intensity, distance, 2);
-  light.position.set(x, y, z);
-  light.castShadow = false;
-  parent.add(light);
-  return light;
 }
 
 function plant(THREE, mats, s = 1) {
@@ -475,7 +471,6 @@ function buildStudy(THREE, house, mats) {
   lamp.add(mesh(new THREE.ConeGeometry(0.09, 0.1, 10), mats.lampShade, 0.05, 0.36, 0));
   lamp.position.set(-1.15, 0.76, 0.22);
   g.add(lamp);
-  addLamp(THREE, g, -1.12, 1.12, 0.2, 0xb38950, 1.55, 4.6);
 
   const chair = new THREE.Group();
   chair.add(box(THREE, 0.42, 0.05, 0.42, mats.oak, 0, 0.46, 0));
@@ -539,7 +534,6 @@ function buildBedroom(THREE, house, mats) {
   g.add(box(THREE, 0.4, 0.48, 0.4, mats.oak, -1.75, 0.24, -0.85));
   const lamp = mesh(new THREE.CylinderGeometry(0.08, 0.1, 0.16, 10), mats.lampShade, -1.75, 0.58, -0.85);
   g.add(lamp);
-  addLamp(THREE, g, -1.75, 0.78, -0.85, 0xb38950, 1.2, 3.8);
 
   const wardrobe = box(THREE, 1.15, 1.9, 0.48, mats.teak, 1.35, 0.95, -1.15);
   g.add(wardrobe);
@@ -665,7 +659,6 @@ function buildLiving(THREE, house, mats) {
   floorLamp.add(mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.2, 12), mats.lampShade, 0, 1.55, 0));
   floorLamp.position.set(1.55, 0, 1.7);
   g.add(floorLamp);
-  addLamp(THREE, g, 1.55, 1.5, 1.7, 0xb38950, 1.45, 5.6);
 
   const p = plant(THREE, mats, 1.15);
   p.position.set(1.7, 0, -2.0);
@@ -689,7 +682,6 @@ function buildKitchen(THREE, house, mats) {
   g.add(box(THREE, 0.58, 1.55, 0.55, mats.plasterDark, 0.88, 0.78, -1.15));
 
   mark(g, { type: "room", roomId: "kitchen" });
-  addLamp(THREE, g, 0.1, 1.55, 0.8, 0xb38950, 0.7, 3.6);
   house.add(g);
 }
 
@@ -722,7 +714,6 @@ function buildDining(THREE, house, mats) {
   const pendant = mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.12, 12), mats.lampShade, 0, 1.85, 0);
   g.add(pendant);
   g.add(box(THREE, 0.015, 0.55, 0.015, mats.metalMatte, 0, 2.2, 0));
-  addLamp(THREE, g, 0, 1.75, 0, 0xb38950, 1.25, 4.4);
 
   house.add(g);
 }
@@ -745,7 +736,6 @@ function buildBath(THREE, house, mats) {
   g.add(box(THREE, 0.28, 0.62, 0.08, mats.linen, -0.85, 0.9, -0.4));
 
   mark(g, { type: "room", roomId: "bath" });
-  addLamp(THREE, g, 0.2, 2.1, -0.4, 0xb38950, 0.45, 3.2);
   house.add(g);
 }
 
@@ -760,7 +750,6 @@ function buildHall(THREE, house, mats) {
   p.position.set(1.85, 0, 0.55);
   g.add(p);
   mark(g, { type: "room", roomId: "hall" });
-  addLamp(THREE, g, 0.2, 2.15, 0, 0xb38950, 0.55, 3.8);
   house.add(g);
 }
 
@@ -773,7 +762,8 @@ export function createCharacter(THREE, mats) {
   g.add(mesh(new THREE.CapsuleGeometry(0.045, 0.32, 4, 6), mats.linen, 0.16, 1.08, 0));
   g.add(mesh(new THREE.CapsuleGeometry(0.05, 0.38, 4, 6), mats.teak, -0.07, 0.45, 0));
   g.add(mesh(new THREE.CapsuleGeometry(0.05, 0.38, 4, 6), mats.teak, 0.07, 0.45, 0));
-  const glow = new THREE.PointLight(0xb38950, 0.35, 2.2, 2);
+  const glow = new THREE.PointLight(0xb38950, 0.12, 2.2, 2);
+  glow.name = "character-glow";
   glow.position.set(0, 1.2, 0);
   g.add(glow);
   g.position.set(-3.55, 0, 0.4);
@@ -816,39 +806,6 @@ export function createWorld(THREE) {
   return { root, mats, house, character };
 }
 
-export function createLights(THREE, scene) {
-  const hemi = new THREE.HemisphereLight(0x4a5a78, 0x2a2014, 1.05);
-  scene.add(hemi);
-
-  const ambient = new THREE.AmbientLight(0x2c384c, 0.45);
-  scene.add(ambient);
-
-  const downFill = new THREE.DirectionalLight(0x5a6a80, 0.4);
-  downFill.position.set(1.5, 18, 2);
-  scene.add(downFill);
-
-  const sun = new THREE.DirectionalLight(0x8a7860, 0.7);
-  sun.position.set(-14, 9.5, 4.5);
-  sun.castShadow = true;
-  sun.shadow.mapSize.set(1024, 1024);
-  sun.shadow.camera.near = 2;
-  sun.shadow.camera.far = 40;
-  sun.shadow.camera.left = -16;
-  sun.shadow.camera.right = 16;
-  sun.shadow.camera.top = 14;
-  sun.shadow.camera.bottom = -14;
-  sun.shadow.bias = -0.00035;
-  sun.shadow.intensity = 0.72;
-  scene.add(sun);
-
-  const skyFill = new THREE.DirectionalLight(0x4a5a78, 0.3);
-  skyFill.position.set(6, 16, -4);
-  scene.add(skyFill);
-
-  const westGlow = new THREE.DirectionalLight(0x5a4638, 0.22);
-  westGlow.position.set(-10, 3.2, 2);
-  scene.add(westGlow);
-}
 
 export function createSky(THREE) {
   const geo = new THREE.SphereGeometry(42, 32, 20);

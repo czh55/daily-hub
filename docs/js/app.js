@@ -9,7 +9,8 @@ import {
   ROOM_CAMERAS,
   ROOMS,
 } from "./config.js";
-import { createLights, createPathLine, createSky, createWorld } from "./world.js";
+import { createLightRig } from "./lighting.js";
+import { createPathLine, createSky, createWorld } from "./world.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -131,11 +132,11 @@ class Home {
     this.controls.enablePan = false;
     this.controls.update();
 
-    createLights(THREE, this.scene);
     const world = createWorld(THREE);
     this.world = world;
     this.scene.add(world.root);
     this.character = world.character;
+    this.lights = createLightRig(THREE, this.scene, world);
 
     const pathPts = this.fullPathPoints();
     const path = createPathLine(THREE, pathPts);
@@ -287,6 +288,7 @@ class Home {
     this.mode = "room";
     $("btn-god").classList.remove("is-on");
     this.animateCamera(cam.position, cam.target, 1.15);
+    this.lights.play("room", roomId, 1.15);
     const stop = DAY_STOPS.find((s) => s.roomId === roomId && (contentIds?.length ? contentIds.some((id) => s.contentIds.includes(id)) : true))
       || DAY_STOPS.find((s) => s.roomId === roomId);
     const ids = contentIds?.length ? contentIds : this.contentsForRoom(roomId);
@@ -319,6 +321,7 @@ class Home {
     $("btn-god").classList.add("is-on");
     $("btn-tour").classList.remove("is-on");
     this.animateCamera(GOD_VIEW.position, GOD_VIEW.target, 1.25);
+    this.lights.play("god", null, 1.25);
     this.placeCharacter(DAY_STOPS[10].stand);
     this.setMoment("下午 · 蓝调时刻");
     $("tl-now").textContent = "17:40 · 蓝调";
@@ -365,6 +368,7 @@ class Home {
     this.highlightStop(index, true);
     this.openPanel(stop, stop.contentIds);
     this.animateCamera(stop.camera, stop.lookAt, 1.2);
+    this.lights.play("room", stop.roomId, 1.2);
     if (walk) {
       const waypoints = [...stop.via, stop.stand];
       this.walkAlong(waypoints);
@@ -460,6 +464,7 @@ class Home {
 
   loop() {
     const dt = this.clock.getDelta();
+    this.lights?.update(dt);
     if (this.camAnim) {
       this.camAnim.t += dt / this.camAnim.dur;
       const k = easeInOut(Math.min(1, this.camAnim.t));
