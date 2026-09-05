@@ -115,7 +115,6 @@ body {
   bottom: var(--space-2);
   background: var(--panel);
   border: 1px solid var(--line);
-  backdrop-filter: blur(12px);
   padding: var(--space-2) var(--space-2) var(--space-1);
 }
 
@@ -234,7 +233,6 @@ body {
   overflow: auto;
   background: var(--panel);
   border: 1px solid var(--line);
-  backdrop-filter: blur(14px);
   padding: var(--space-3);
   transform: translateX(24px);
   opacity: 0;
