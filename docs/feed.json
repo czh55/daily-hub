@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-03 08:32:22",
-  "date": "2026-09-03",
+  "generated_at": "2026-09-05 10:31:53",
+  "date": "2026-09-05",
   "pages": [
     {
       "id": "daily-photos",
@@ -120,6 +120,16 @@
       "snippet": "每日一道面试题",
       "error": "",
       "updated_at": "标题: 每日面试问答 · 知识点深挖",
+      "room": "study"
+    },
+    {
+      "id": "daily-design",
+      "name": "Daily Design",
+      "url": "https://chenzhiheng.cn/daily-design/",
+      "description": "视觉设计师审美认知系统",
+      "snippet": "视觉设计师的审美认知系统",
+      "error": "",
+      "updated_at": "标题: 视觉设计师审美认知系统 · 知识专题",
       "room": "study"
     }
   ]

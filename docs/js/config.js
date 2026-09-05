@@ -116,6 +116,14 @@ export const CONTENTS = {
     rooms: ["study"],
     fallback: "旧笔记被一站一站安放到地图上。",
   },
+  "daily-design": {
+    id: "daily-design",
+    name: "审美训练",
+    description: "视觉设计师审美认知系统",
+    url: "https://chenzhiheng.cn/daily-design/",
+    rooms: ["study"],
+    fallback: "先看差异，再读清单。感觉要练成判断力。",
+  },
   "audio-workshop": {
     id: "audio-workshop",
     name: "播客记录",
@@ -264,9 +272,9 @@ export const DAY_STOPS = [
     via: [[-2.6, -3.5]],
     camera: [ -0.8, 4.3, -1.5 ],
     lookAt: [ -3.2, 0.85, -3.4 ],
-    contentIds: ["language-paraphrase", "bear2cursor"],
+    contentIds: ["language-paraphrase", "bear2cursor", "daily-design"],
     narrative:
-      "改一句英语，迁一条旧笔记。知识像旅行，一站一站被安放到他自己的地图上。",
+      "改一句英语，迁一条旧笔记，再拆一组配色和留白。知识像旅行，眼睛也要练成判断力。",
   },
   {
     id: "lunch",

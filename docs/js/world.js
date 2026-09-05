@@ -506,7 +506,7 @@ function buildStudy(THREE, house, mats) {
     shelf.add(book);
   }
   shelf.position.set(0.85, 0, -1.85);
-  mark(shelf, { type: "hotspot", roomId: "study", contentIds: ["bear2cursor", "language-paraphrase"] });
+  mark(shelf, { type: "hotspot", roomId: "study", contentIds: ["bear2cursor", "language-paraphrase", "daily-design"] });
   g.add(shelf);
 
   const board = box(THREE, 1.05, 0.7, 0.03, mats.plasterDark, 1.95, 1.45, -0.2);

@@ -100,6 +100,14 @@
       "emoji": "🎤",
       "description": "每日面试问答 · 知识点深挖",
       "room": "study"
+    },
+    {
+      "id": "daily-design",
+      "name": "Daily Design",
+      "url": "https://chenzhiheng.cn/daily-design/",
+      "emoji": "🎨",
+      "description": "视觉设计师审美认知系统",
+      "room": "study"
     }
   ]
 }
