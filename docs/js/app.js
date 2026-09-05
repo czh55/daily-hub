@@ -463,7 +463,7 @@ class Home {
   }
 
   loop() {
-    const dt = Math.min(this.clock.getDelta(), 0.05);
+    const dt = Math.min(this.clock.getDelta(), 0.1);
     this.lights?.update(dt);
     if (this.camAnim) {
       this.camAnim.t += dt / this.camAnim.dur;

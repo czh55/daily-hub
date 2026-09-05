@@ -154,7 +154,7 @@ export function createLightRig(THREE, scene, world) {
 
     update(dt) {
       if (!this.anim) return;
-      this.anim.t += Math.min(dt, 0.05) / this.anim.dur;
+      this.anim.t += Math.min(dt, 0.1) / this.anim.dur;
       const t = Math.min(1, this.anim.t);
       for (const ch of channels) {
         const [a, b] = this.anim.windows[ch.id];
