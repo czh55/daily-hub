@@ -11,13 +11,18 @@
     <p class="hub-kicker">每日汇总</p>
     <h1>志恒的家</h1>
     <p class="hub-date">{{ date }}</p>
-    <p class="hub-desc">{{ site_description }}</p>
-    <p class="hub-desc"><a href="./">回到房子</a></p>
+    <p class="hub-desc">{{ site_description }} · <a href="./">回到房子</a></p>
   </header>
+
+  <nav class="hub-index" aria-label="按房间查找">
+    {% for room in rooms %}
+    <a href="#room-{{ room.id }}">{{ room.name }}</a>
+    {% endfor %}
+  </nav>
 
   <main class="hub">
     {% for room in rooms %}
-    <section class="hub-room">
+    <section class="hub-room" id="room-{{ room.id }}">
       <h2 class="hub-room-name">{{ room.name }}</h2>
       <div class="hub-room-list">
         {% for page in room.pages %}

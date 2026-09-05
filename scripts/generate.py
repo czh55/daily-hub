@@ -182,8 +182,10 @@ def render_template(template: str, context: dict) -> str:
         if isinstance(value, str):
             result = result.replace(f"{{{{ {key} }}}}", value)
 
-    room_span = _find_for_block(result, "{% for room in rooms %}")
-    if room_span:
+    while True:
+        room_span = _find_for_block(result, "{% for room in rooms %}")
+        if not room_span:
+            break
         start, inner_start, inner_end, close_end = room_span
         room_template = result[inner_start:inner_end]
         rendered_rooms = []
