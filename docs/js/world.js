@@ -136,27 +136,27 @@ export function createMaterials(THREE) {
   deckMap.repeat.set(3, 2);
 
   return {
-    floor: lamb(THREE, floorMap, 0x8f7d66),
-    oak: lamb(THREE, oakMap, 0x8a7358),
-    teak: lamb(THREE, teakMap, 0x7a634c),
-    exterior: lamb(THREE, extMap, 0x6e5a44),
-    deck: lamb(THREE, deckMap, 0x7d684e),
-    plaster: matte(THREE, 0x4a4338),
-    plasterDark: matte(THREE, 0x322c26),
-    stone: matte(THREE, 0x26221c),
+    floor: lamb(THREE, floorMap, 0xe8d4bc),
+    oak: lamb(THREE, oakMap, 0xe4d0b8),
+    teak: lamb(THREE, teakMap, 0xd8c4a8),
+    exterior: lamb(THREE, extMap, 0xd2bea4),
+    deck: lamb(THREE, deckMap, 0xdcc8b0),
+    plaster: matte(THREE, 0x8a8070),
+    plasterDark: matte(THREE, 0x5a5248),
+    stone: matte(THREE, 0x4a443c),
     glass: new THREE.MeshLambertMaterial({
       color: 0x243040,
       transparent: true,
       opacity: 0.42,
     }),
-    sofa: lamb(THREE, fabricTexture(THREE, "#3a322c", 7), 0xb0a498),
-    linen: lamb(THREE, fabricTexture(THREE, "#3c3832", 8), 0xb8b0a6),
-    cushion: lamb(THREE, fabricTexture(THREE, "#2a3840", 9), 0x98a0a8),
-    moss: lamb(THREE, fabricTexture(THREE, "#304030", 10), 0x98a088),
-    rug: lamb(THREE, fabricTexture(THREE, "#2e2a24", 12), 0x989088),
-    grass: matte(THREE, 0x24301c),
-    dirt: matte(THREE, 0x2a2218),
-    metalMatte: matte(THREE, 0x3a3630),
+    sofa: lamb(THREE, fabricTexture(THREE, "#3a322c", 7), 0xe8dcc8),
+    linen: lamb(THREE, fabricTexture(THREE, "#3c3832", 8), 0xece4d8),
+    cushion: lamb(THREE, fabricTexture(THREE, "#2a3840", 9), 0xc8d0d4),
+    moss: lamb(THREE, fabricTexture(THREE, "#304030", 10), 0xc8d0b0),
+    rug: lamb(THREE, fabricTexture(THREE, "#2e2a24", 12), 0xc8c0b4),
+    grass: matte(THREE, 0x3a4a30),
+    dirt: matte(THREE, 0x4a3c2c),
+    metalMatte: matte(THREE, 0x6a645c),
     lampShade: new THREE.MeshLambertMaterial({
       color: 0x8a6840,
       emissive: 0xb38950,
@@ -170,8 +170,8 @@ export function createMaterials(THREE) {
     photo: new THREE.MeshLambertMaterial({
       color: 0x4a4034,
     }),
-    leaf: matte(THREE, 0x2a3824),
-    path: matte(THREE, 0x3a362e),
+    leaf: matte(THREE, 0x4a5c3c),
+    path: matte(THREE, 0x5a5448),
   };
 }
 
