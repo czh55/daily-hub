@@ -101,6 +101,80 @@ def extract_title(html: str) -> str | None:
     return None
 
 
+ROOM_ORDER = [
+    "study",
+    "living",
+    "bedroom",
+    "dining",
+    "balcony",
+    "kitchen",
+    "bath",
+    "hall",
+]
+
+ROOM_NAMES = {
+    "study": "书房",
+    "living": "客厅",
+    "bedroom": "卧室",
+    "dining": "餐厅",
+    "balcony": "阳台",
+    "kitchen": "厨房",
+    "bath": "卫生间",
+    "hall": "玄关",
+}
+
+
+def group_pages_by_room(pages: list[dict]) -> list[dict]:
+    grouped: dict[str, list[dict]] = {}
+    extras: list[dict] = []
+    for page in pages:
+        room = page.get("room") or ""
+        if room in ROOM_NAMES:
+            grouped.setdefault(room, []).append(page)
+        else:
+            extras.append(page)
+    rooms = [
+        {"id": room_id, "name": ROOM_NAMES[room_id], "pages": grouped[room_id]}
+        for room_id in ROOM_ORDER
+        if grouped.get(room_id)
+    ]
+    if extras:
+        rooms.append({"id": "other", "name": "其他", "pages": extras})
+    return rooms
+
+
+def _render_page_block(template: str, page: dict) -> str:
+    block = _strip_if_blocks(template, page)
+    for pk, pv in page.items():
+        if isinstance(pv, str):
+            block = block.replace(f"{{{{ page.{pk} }}}}", pv)
+    return block
+
+
+def _find_for_block(text: str, open_tag: str) -> tuple[int, int, int, int] | None:
+    """返回 (open_start, inner_start, inner_end, close_end)，按嵌套匹配 endfor。"""
+    start = text.find(open_tag)
+    if start < 0:
+        return None
+    inner_start = start + len(open_tag)
+    depth = 1
+    pos = inner_start
+    while True:
+        nxt_for = text.find("{% for ", pos)
+        nxt_end = text.find("{% endfor %}", pos)
+        if nxt_end < 0:
+            return None
+        if nxt_for >= 0 and nxt_for < nxt_end:
+            depth += 1
+            pos = nxt_for + 7
+            continue
+        depth -= 1
+        close_end = nxt_end + len("{% endfor %}")
+        if depth == 0:
+            return start, inner_start, nxt_end, close_end
+        pos = close_end
+
+
 def render_template(template: str, context: dict) -> str:
     """简易模板渲染（避免额外依赖）。处理 {{ var }} 和 {% for %} {% if %} 块。"""
     result = template
@@ -108,27 +182,34 @@ def render_template(template: str, context: dict) -> str:
         if isinstance(value, str):
             result = result.replace(f"{{{{ {key} }}}}", value)
 
-    # 处理循环块 {% for page in pages %} ... {% endfor %}
-    loop_match = re.search(
-        r"\{% for page in pages %\}(.*?)\{% endfor %\}",
-        result, re.DOTALL,
-    )
-    if loop_match:
-        loop_template = loop_match.group(1)
-        rendered_blocks = []
-        for page in context.get("pages", []):
-            block = loop_template
-            # 先移除 if 块（全部展开，因为 page 字段已提前填充好）
-            block = _strip_if_blocks(block, page)
-            for pk, pv in page.items():
-                if isinstance(pv, str):
-                    block = block.replace(f"{{{{ page.{pk} }}}}", pv)
-            rendered_blocks.append(block)
-        result = (
-            result[: loop_match.start()]
-            + "\n".join(rendered_blocks)
-            + result[loop_match.end() :]
-        )
+    room_span = _find_for_block(result, "{% for room in rooms %}")
+    if room_span:
+        start, inner_start, inner_end, close_end = room_span
+        room_template = result[inner_start:inner_end]
+        rendered_rooms = []
+        for room in context.get("rooms", []):
+            block = room_template
+            page_span = _find_for_block(block, "{% for page in room.pages %}")
+            if page_span:
+                p_start, p_inner, p_end, p_close = page_span
+                page_blocks = [
+                    _render_page_block(block[p_inner:p_end], page)
+                    for page in room.get("pages", [])
+                ]
+                block = block[:p_start] + "\n".join(page_blocks) + block[p_close:]
+            block = block.replace("{{ room.name }}", room.get("name", ""))
+            block = block.replace("{{ room.id }}", room.get("id", ""))
+            rendered_rooms.append(block)
+        result = result[:start] + "\n".join(rendered_rooms) + result[close_end:]
+
+    page_span = _find_for_block(result, "{% for page in pages %}")
+    if page_span:
+        start, inner_start, inner_end, close_end = page_span
+        rendered_blocks = [
+            _render_page_block(result[inner_start:inner_end], page)
+            for page in context.get("pages", [])
+        ]
+        result = result[:start] + "\n".join(rendered_blocks) + result[close_end:]
     return result
 
 
@@ -193,6 +274,7 @@ def generate() -> None:
         "date": date_str,
         "generated_at": datetime_str,
         "pages": page_data,
+        "rooms": group_pages_by_room(page_data),
     }
 
     html_output = render_template(template, context)
@@ -227,8 +309,13 @@ def generate() -> None:
     # 写入归档
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     archive_path = ARCHIVE_DIR / f"{date_str}.html"
+    archive_html = (
+        html_output.replace('href="style.css"', 'href="../style.css"')
+        .replace('href="./"', 'href="../"')
+        .replace('href="archive/"', 'href="./"')
+    )
     with open(archive_path, "w", encoding="utf-8") as f:
-        f.write(html_output)
+        f.write(archive_html)
     print(f"  ✓ 归档已保存: {archive_path}")
 
     # 更新历史

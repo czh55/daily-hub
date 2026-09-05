@@ -193,6 +193,7 @@ class Home {
   bind() {
     $("btn-god").addEventListener("click", () => this.toGod());
     $("btn-tour").addEventListener("click", () => this.toggleTour());
+    $("panel-close").addEventListener("click", () => this.closePanel());
     window.addEventListener("resize", () => this.resize());
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") this.toGod();
@@ -376,12 +377,20 @@ class Home {
   highlightStop(index, updateHead) {
     const buttons = $("stops").querySelectorAll(".stop");
     buttons.forEach((b, i) => b.classList.toggle("is-on", i === index));
+    const current = buttons[index];
+    if (current) {
+      current.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+    }
     if (updateHead && DAY_STOPS[index]) {
       const s = DAY_STOPS[index];
       $("tl-now").textContent = `${s.time} · ${s.title}`;
       $("tl-desc").textContent = `${ROOMS[s.roomId].name} · ${ROOMS[s.roomId].life}`;
       this.setMoment(`${s.time} · ${ROOMS[s.roomId].name}`);
     }
+  }
+
+  closePanel() {
+    $("panel").classList.remove("is-open");
   }
 
   setMoment(text) {

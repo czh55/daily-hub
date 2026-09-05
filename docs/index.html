@@ -30,17 +30,11 @@
       <h1>志恒的家</h1>
       <p class="meta">互联网研发 · 把一天安放在这所房子里</p>
       <p class="moment" id="moment">下午 · 蓝调时刻</p>
+      <p class="hint" id="hint">拖动旋转整座房子 · 点击房间进入 · 或沿一日动线走完他的生活</p>
     </header>
 
-    <p class="hint" id="hint">拖动旋转整座房子 · 点击房间进入 · 或沿一日动线走完他的生活</p>
-
-    <div class="controls">
-      <button class="btn is-on" id="btn-god" type="button">上帝视角</button>
-      <button class="btn" id="btn-tour" type="button">一日动线</button>
-      <a class="btn" href="list.html">卡片目录</a>
-    </div>
-
     <aside class="panel" id="panel" aria-live="polite">
+      <button class="panel-close" id="panel-close" type="button">关闭</button>
       <p class="panel-kicker" id="panel-kicker"></p>
       <h2 id="panel-title"></h2>
       <p class="story" id="panel-story"></p>
@@ -49,8 +43,15 @@
 
     <nav class="timeline" id="timeline" aria-label="一日动线">
       <div class="timeline-head">
-        <span class="now" id="tl-now">17:40 · 蓝调</span>
-        <span class="now-desc" id="tl-desc">默认停在下午，房子内外都被最后一层天光看见。</span>
+        <div class="timeline-now">
+          <span class="now" id="tl-now">17:40 · 蓝调</span>
+          <span class="now-desc" id="tl-desc">默认停在下午，房子内外都被最后一层天光看见。</span>
+        </div>
+        <div class="controls">
+          <button class="btn is-on" id="btn-god" type="button">上帝视角</button>
+          <button class="btn" id="btn-tour" type="button">一日动线</button>
+          <a class="btn" href="list.html">目录</a>
+        </div>
       </div>
       <div class="stops" id="stops"></div>
     </nav>

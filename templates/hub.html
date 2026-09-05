@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site_title }} - {{ date }}</title>
+  <title>志恒的家 · {{ date }}</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="hub-header">
-    <h1>{{ site_title }}</h1>
+    <p class="hub-kicker">每日汇总</p>
+    <h1>志恒的家</h1>
     <p class="hub-date">{{ date }}</p>
     <p class="hub-desc">{{ site_description }}</p>
     <p class="hub-desc"><a href="./">回到房子</a></p>
   </header>
 
-  <main class="hub-grid">
-    {% for page in pages %}
-    <a href="{{ page.url }}" class="hub-card" target="_blank" rel="noopener">
-      <div class="card-emoji">{{ page.emoji }}</div>
-      <h2 class="card-title">{{ page.name }}</h2>
-      <p class="card-desc">{{ page.description }}</p>
-      <div class="card-snippet">
-        <p>{{ page.snippet }}</p>
-        <p class="card-error">{{ page.error }}</p>
+  <main class="hub">
+    {% for room in rooms %}
+    <section class="hub-room">
+      <h2 class="hub-room-name">{{ room.name }}</h2>
+      <div class="hub-room-list">
+        {% for page in room.pages %}
+        <a href="{{ page.url }}" class="hub-card" target="_blank" rel="noopener">
+          <p class="card-kicker">{{ page.name }}</p>
+          <h3 class="card-title">{{ page.description }}</h3>
+          <p class="card-snippet">{{ page.snippet }}</p>
+          <p class="card-error">{{ page.error }}</p>
+        </a>
+        {% endfor %}
       </div>
-      <div class="card-meta">
-        <span class="card-time">{{ page.updated_at }}</span>
-      </div>
-    </a>
+    </section>
     {% endfor %}
   </main>
 
