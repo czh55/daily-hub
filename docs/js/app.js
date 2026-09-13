@@ -182,12 +182,18 @@ class Home {
     this.updateTrackLabels();
   }
 
-  updateTrackLabels() {
+  updateTrackLabels(contentIds) {
     const inStudy =
       (this.mode === "room" && this.currentRoom === "study") ||
       (this.mode === "tour" && DAY_STOPS[this.tourIndex]?.roomId === "study");
+    const active = new Set();
+    for (const id of contentIds || []) {
+      const track = CONTENTS[id]?.track;
+      if (track) active.add(track);
+    }
     for (const label of this.trackLabels) {
-      label.el.classList.toggle("is-shown", inStudy);
+      const on = inStudy && active.size === 1 && active.has(label.track);
+      label.el.classList.toggle("is-shown", on);
     }
     const studyLabel = this.labels.find((l) => l.roomId === "study");
     if (studyLabel) studyLabel.el.classList.toggle("is-dim", inStudy);
@@ -326,10 +332,10 @@ class Home {
     $("btn-god").classList.remove("is-on");
     this.animateCamera(cam.position, cam.target, 1.15);
     this.lights.play("room", roomId, 1.15);
-    this.updateTrackLabels();
     const stop = DAY_STOPS.find((s) => s.roomId === roomId && (contentIds?.length ? contentIds.some((id) => s.contentIds.includes(id)) : true))
       || DAY_STOPS.find((s) => s.roomId === roomId);
     const ids = contentIds?.length ? contentIds : this.contentsForRoom(roomId);
+    this.updateTrackLabels(ids);
     const trackTitle = this.singleTrackName(ids);
     if (stop) {
       this.placeCharacter(stop.stand);
@@ -423,7 +429,7 @@ class Home {
     $("btn-god").classList.remove("is-on");
     this.highlightStop(index, true);
     this.openPanel(stop, stop.contentIds);
-    this.updateTrackLabels();
+    this.updateTrackLabels(stop.contentIds);
     this.animateCamera(stop.camera, stop.lookAt, 1.2);
     this.lights.play("room", stop.roomId, 1.2);
     if (walk) {
