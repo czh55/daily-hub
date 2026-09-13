@@ -108,6 +108,14 @@
       "emoji": "🎨",
       "description": "视觉设计师审美认知系统",
       "room": "study"
+    },
+    {
+      "id": "my-podcast",
+      "name": "My Podcast",
+      "url": "https://chenzhiheng.cn/my_podcast/",
+      "emoji": "🎙️",
+      "description": "才岁播客",
+      "room": "dining"
     }
   ]
 }

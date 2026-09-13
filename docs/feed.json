@@ -131,6 +131,16 @@
       "error": "",
       "updated_at": "标题: 视觉设计师审美认知系统 · 知识专题",
       "room": "study"
+    },
+    {
+      "id": "my-podcast",
+      "name": "My Podcast",
+      "url": "https://chenzhiheng.cn/my_podcast/",
+      "description": "才岁播客",
+      "snippet": "十年一期，从才30谈年龄与社会",
+      "error": "",
+      "updated_at": "标题: 才岁播客 · 十年一期",
+      "room": "dining"
     }
   ]
 }

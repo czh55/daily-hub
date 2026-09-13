@@ -132,6 +132,14 @@ export const CONTENTS = {
     rooms: ["dining"],
     fallback: "早餐时，别人的思考进到这间屋子。",
   },
+  "my-podcast": {
+    id: "my-podcast",
+    name: "才岁播客",
+    description: "十年一期",
+    url: "https://chenzhiheng.cn/my_podcast/",
+    rooms: ["dining"],
+    fallback: "每隔十年做一组系列。从才30开始，谈年龄和社会那些说不清的问题。",
+  },
   "daily-lyric-learning": {
     id: "daily-lyric-learning",
     name: "音乐 / 歌词",
@@ -229,9 +237,9 @@ export const DAY_STOPS = [
     via: [[4.55, 0.3]],
     camera: [ 2.1, 4.3, 2.1 ],
     lookAt: [ 4.6, 0.75, 0.25 ],
-    contentIds: ["audio-workshop"],
+    contentIds: ["audio-workshop", "my-podcast"],
     narrative:
-      "一个人吃，耳机里却有别人的思考。他把听到的记进播客知识墙，早餐因此多了一层回声。",
+      "一个人吃，耳机里有别人的思考，桌上也放着他自己十年一期的系列。听完别人，再写下才岁。",
   },
   {
     id: "algo",

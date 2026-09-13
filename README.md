@@ -11,7 +11,7 @@
 | 卧室 | 07:00 醒来 / 22:40 睡前 | 摄影分享 |
 | 卫生间 | 07:25 洗漱 | 生活场景 |
 | 厨房 | 07:50 早餐 / 19:00 晚饭 | 生活场景 |
-| 餐厅 | 08:15 早餐听播客 | 播客记录 |
+| 餐厅 | 08:15 早餐听播客 | 播客记录 / 才岁播客 |
 | 书房 | 上午：算法、面试、技术、AI、语言、笔记、审美 | 算法 / 面试口述 / 技术学习 / DayAI / 语言 / Bear2Cursor / 审美训练 |
 | 客厅 | 下午与夜里：音乐、视频、剧集 | 歌词 / 视频总结 / 影视分析 |
 | 阳台 | 17:40 蓝调时刻 | 旅行攻略 / 摄影 |
@@ -33,6 +33,7 @@
 | Bear2Cursor | https://chenzhiheng.cn/bear2cursor/ |
 | Daily Meet Question | https://chenzhiheng.cn/daily_meet_question/ |
 | Daily Design | https://chenzhiheng.cn/daily-design/ |
+| My Podcast | https://chenzhiheng.cn/my_podcast/ |
 
 ## 项目结构
 

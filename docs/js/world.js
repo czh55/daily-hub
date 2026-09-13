@@ -690,7 +690,7 @@ function buildDining(THREE, house, mats) {
   g.position.set(4.7, 0, 0.3);
 
   const table = box(THREE, 1.15, 0.06, 0.75, mats.oak, 0, 0.74, 0);
-  mark(table, { type: "hotspot", roomId: "dining", contentIds: ["audio-workshop"] });
+  mark(table, { type: "hotspot", roomId: "dining", contentIds: ["audio-workshop", "my-podcast"] });
   g.add(table);
   g.add(box(THREE, 0.08, 0.72, 0.08, mats.oak, -0.45, 0.36, -0.28));
   g.add(box(THREE, 0.08, 0.72, 0.08, mats.oak, 0.45, 0.36, -0.28));
