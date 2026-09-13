@@ -8,6 +8,10 @@ import {
   GOD_VIEW,
   ROOM_CAMERAS,
   ROOMS,
+  TRACKS,
+  TRACK_MARKERS,
+  TRACK_ORDER,
+  groupIdsByTrack,
 } from "./config.js";
 import { createLightRig } from "./lighting.js";
 import { createPathLine, createSky, createWorld } from "./world.js";
@@ -45,6 +49,7 @@ class Home {
   constructor() {
     this.feedSnippets = {};
     this.mode = "god";
+    this.currentRoom = null;
     this.tourIndex = -1;
     this.tourPlaying = false;
     this.camAnim = null;
@@ -149,16 +154,43 @@ class Home {
 
   addRoomLabels() {
     this.labels = [];
+    this.trackLabels = [];
     for (const room of Object.values(ROOMS)) {
       if (room.id === "hall") continue;
       const el = document.createElement("div");
       el.className = "label3d";
-      el.textContent = room.name;
+      if (room.id === "study") {
+        el.innerHTML = `<span class="label3d-name">${room.name}</span><span class="label3d-sub">${room.life}</span>`;
+      } else {
+        el.textContent = room.name;
+      }
       const obj = new CSS2DObject(el);
       obj.position.set(room.bounds.x, 2.05, room.bounds.z);
       this.scene.add(obj);
       this.labels.push({ el, roomId: room.id });
     }
+    for (const marker of TRACK_MARKERS) {
+      const track = TRACKS[marker.track];
+      const el = document.createElement("div");
+      el.className = "label3d label3d-track";
+      el.textContent = track.name;
+      const obj = new CSS2DObject(el);
+      obj.position.set(...marker.position);
+      this.scene.add(obj);
+      this.trackLabels.push({ el, track: marker.track, obj });
+    }
+    this.updateTrackLabels();
+  }
+
+  updateTrackLabels() {
+    const inStudy =
+      (this.mode === "room" && this.currentRoom === "study") ||
+      (this.mode === "tour" && DAY_STOPS[this.tourIndex]?.roomId === "study");
+    for (const label of this.trackLabels) {
+      label.el.classList.toggle("is-shown", inStudy);
+    }
+    const studyLabel = this.labels.find((l) => l.roomId === "study");
+    if (studyLabel) studyLabel.el.classList.toggle("is-dim", inStudy);
   }
 
   fullPathPoints() {
@@ -266,8 +298,12 @@ class Home {
       }
     });
     const roomId = obj.userData.roomId;
+    const track = obj.userData.track;
     for (const label of this.labels) {
       label.el.classList.toggle("is-hot", on && label.roomId === roomId);
+    }
+    for (const label of this.trackLabels || []) {
+      label.el.classList.toggle("is-hot", on && label.track === track);
     }
   }
 
@@ -286,21 +322,28 @@ class Home {
     const cam = ROOM_CAMERAS[roomId];
     if (!cam) return;
     this.mode = "room";
+    this.currentRoom = roomId;
     $("btn-god").classList.remove("is-on");
     this.animateCamera(cam.position, cam.target, 1.15);
     this.lights.play("room", roomId, 1.15);
+    this.updateTrackLabels();
     const stop = DAY_STOPS.find((s) => s.roomId === roomId && (contentIds?.length ? contentIds.some((id) => s.contentIds.includes(id)) : true))
       || DAY_STOPS.find((s) => s.roomId === roomId);
     const ids = contentIds?.length ? contentIds : this.contentsForRoom(roomId);
+    const trackTitle = this.singleTrackName(ids);
     if (stop) {
       this.placeCharacter(stop.stand);
-      this.openPanel(stop, ids);
+      this.openPanel({
+        ...stop,
+        title: contentIds?.length && trackTitle ? trackTitle : (contentIds?.length ? stop.title : ROOMS[roomId].name),
+        narrative: contentIds?.length ? stop.narrative : ROOMS[roomId].life,
+      }, ids);
       const idx = DAY_STOPS.indexOf(stop);
       this.highlightStop(idx, false);
     } else {
       this.openPanel({
         time: "",
-        title: ROOMS[roomId].name,
+        title: trackTitle || ROOMS[roomId].name,
         roomId,
         narrative: ROOMS[roomId].life,
         contentIds: ids,
@@ -309,13 +352,24 @@ class Home {
   }
 
   contentsForRoom(roomId) {
+    const rank = (id) => {
+      const i = TRACK_ORDER.indexOf(CONTENTS[id]?.track);
+      return i === -1 ? 99 : i;
+    };
     return Object.values(CONTENTS)
       .filter((c) => c.rooms.includes(roomId))
+      .sort((a, b) => rank(a.id) - rank(b.id))
       .map((c) => c.id);
+  }
+
+  singleTrackName(ids) {
+    const groups = groupIdsByTrack(ids).filter((g) => g.track);
+    return groups.length === 1 && groups[0].ids.length === ids.length ? groups[0].track.name : "";
   }
 
   toGod() {
     this.mode = "god";
+    this.currentRoom = null;
     this.tourPlaying = false;
     this.tourIndex = -1;
     $("btn-god").classList.add("is-on");
@@ -328,6 +382,7 @@ class Home {
     $("tl-desc").textContent = "默认停在下午，房子内外都被最后一层天光看见。";
     $("panel").classList.remove("is-open");
     this.highlightStop(10, false);
+    this.updateTrackLabels();
   }
 
   toggleTour() {
@@ -364,9 +419,11 @@ class Home {
     const stop = DAY_STOPS[index];
     this.tourIndex = index;
     this.mode = "tour";
+    this.currentRoom = stop.roomId;
     $("btn-god").classList.remove("is-on");
     this.highlightStop(index, true);
     this.openPanel(stop, stop.contentIds);
+    this.updateTrackLabels();
     this.animateCamera(stop.camera, stop.lookAt, 1.2);
     this.lights.play("room", stop.roomId, 1.2);
     if (walk) {
@@ -415,17 +472,27 @@ class Home {
       p.textContent = "这一段只属于生活本身，没有对外分享的条目。动线还在往前走。";
       box.appendChild(p);
     } else {
-      for (const id of ids) {
-        const c = CONTENTS[id];
-        if (!c) continue;
-        const a = document.createElement("a");
-        a.className = "link";
-        a.href = c.url;
-        a.target = "_blank";
-        a.rel = "noopener";
-        const snip = this.feedSnippets[id] || c.fallback;
-        a.innerHTML = `<span class="name">${c.name}</span><span class="snip">${snip}</span>`;
-        box.appendChild(a);
+      const groups = groupIdsByTrack(ids);
+      const showHeads = groups.length > 1;
+      for (const group of groups) {
+        if (showHeads && group.track) {
+          const head = document.createElement("p");
+          head.className = "link-track";
+          head.textContent = group.track.name;
+          box.appendChild(head);
+        }
+        for (const id of group.ids) {
+          const c = CONTENTS[id];
+          if (!c) continue;
+          const a = document.createElement("a");
+          a.className = "link";
+          a.href = c.url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          const snip = this.feedSnippets[id] || c.fallback;
+          a.innerHTML = `<span class="name">${c.name}</span><span class="snip">${snip}</span>`;
+          box.appendChild(a);
+        }
       }
     }
     $("panel").classList.add("is-open");

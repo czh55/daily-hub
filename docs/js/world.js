@@ -457,7 +457,7 @@ function buildStudy(THREE, house, mats) {
   desk.add(box(THREE, 0.42, 0.28, 0.52, mats.teak, 0.52, 0.28, 0));
   desk.position.set(-1.35, 0, -0.15);
   desk.rotation.y = Math.PI / 2;
-  mark(desk, { type: "hotspot", roomId: "study", contentIds: ["daily-tech-learning", "dayai"] });
+  mark(desk, { type: "hotspot", roomId: "study", track: "craft", contentIds: ["daily-tech-learning", "dayai"] });
   g.add(desk);
 
   const monitor = box(THREE, 0.52, 0.32, 0.03, mats.screen, -1.55, 1.05, -0.15);
@@ -501,14 +501,26 @@ function buildStudy(THREE, house, mats) {
     shelf.add(book);
   }
   shelf.position.set(0.85, 0, -1.85);
-  mark(shelf, { type: "hotspot", roomId: "study", contentIds: ["bear2cursor", "language-paraphrase", "english-system", "daily-design"] });
+  mark(shelf, { type: "hotspot", roomId: "study", track: "voice", contentIds: ["english-system", "language-paraphrase", "express-system"] });
   g.add(shelf);
 
   const board = box(THREE, 1.05, 0.7, 0.03, mats.plasterDark, 1.95, 1.45, -0.2);
   board.rotation.y = -Math.PI / 2;
-  mark(board, { type: "hotspot", roomId: "study", contentIds: ["daily-algo", "daily-meet-question", "express-system"] });
+  mark(board, { type: "hotspot", roomId: "study", track: "craft", contentIds: ["daily-algo", "daily-meet-question"] });
   g.add(board);
   g.add(box(THREE, 0.22, 0.02, 0.16, mats.linen, -1.2, 0.775, 0.18));
+
+  const rest = new THREE.Group();
+  rest.add(box(THREE, 0.52, 0.04, 0.36, mats.oak, 0, 0.34, 0));
+  rest.add(box(THREE, 0.04, 0.32, 0.04, mats.oak, -0.22, 0.16, -0.14));
+  rest.add(box(THREE, 0.04, 0.32, 0.04, mats.oak, 0.22, 0.16, -0.14));
+  rest.add(box(THREE, 0.04, 0.32, 0.04, mats.oak, -0.22, 0.16, 0.14));
+  rest.add(box(THREE, 0.04, 0.32, 0.04, mats.oak, 0.22, 0.16, 0.14));
+  rest.add(box(THREE, 0.16, 0.02, 0.12, mats.linen, -0.08, 0.37, 0.02));
+  rest.add(box(THREE, 0.11, 0.03, 0.15, mats.moss, 0.12, 0.38, -0.04));
+  rest.position.set(1.28, 0, 1.18);
+  mark(rest, { type: "hotspot", roomId: "study", track: "culture", contentIds: ["bear2cursor", "daily-design"] });
+  g.add(rest);
 
   const p = plant(THREE, mats, 0.95);
   p.position.set(1.7, 0, 1.55);

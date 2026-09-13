@@ -123,6 +123,35 @@ ROOM_NAMES = {
     "hall": "玄关",
 }
 
+TRACK_NAMES = {
+    "craft": "硬功",
+    "voice": "开口",
+    "culture": "修养",
+}
+
+TRACK_ORDER = ["craft", "voice", "culture"]
+
+
+def _groups_for_pages(pages: list[dict]) -> list[dict]:
+    by_track: dict[str, list[dict]] = {}
+    rest: list[dict] = []
+    for page in pages:
+        track = page.get("track") or ""
+        if track in TRACK_NAMES:
+            by_track.setdefault(track, []).append(page)
+        else:
+            rest.append(page)
+    if not by_track:
+        return [{"id": "", "name": "", "pages": pages}]
+    groups = [
+        {"id": track_id, "name": TRACK_NAMES[track_id], "pages": by_track[track_id]}
+        for track_id in TRACK_ORDER
+        if by_track.get(track_id)
+    ]
+    if rest:
+        groups.append({"id": "", "name": "", "pages": rest})
+    return groups
+
 
 def group_pages_by_room(pages: list[dict]) -> list[dict]:
     grouped: dict[str, list[dict]] = {}
@@ -133,13 +162,28 @@ def group_pages_by_room(pages: list[dict]) -> list[dict]:
             grouped.setdefault(room, []).append(page)
         else:
             extras.append(page)
-    rooms = [
-        {"id": room_id, "name": ROOM_NAMES[room_id], "pages": grouped[room_id]}
-        for room_id in ROOM_ORDER
-        if grouped.get(room_id)
-    ]
+    rooms = []
+    for room_id in ROOM_ORDER:
+        if not grouped.get(room_id):
+            continue
+        room_pages = grouped[room_id]
+        rooms.append(
+            {
+                "id": room_id,
+                "name": ROOM_NAMES[room_id],
+                "pages": room_pages,
+                "groups": _groups_for_pages(room_pages),
+            }
+        )
     if extras:
-        rooms.append({"id": "other", "name": "其他", "pages": extras})
+        rooms.append(
+            {
+                "id": "other",
+                "name": "其他",
+                "pages": extras,
+                "groups": _groups_for_pages(extras),
+            }
+        )
     return rooms
 
 
@@ -191,6 +235,25 @@ def render_template(template: str, context: dict) -> str:
         rendered_rooms = []
         for room in context.get("rooms", []):
             block = room_template
+            group_span = _find_for_block(block, "{% for group in room.groups %}")
+            if group_span:
+                g_start, g_inner, g_end, g_close = group_span
+                group_tpl = block[g_inner:g_end]
+                group_blocks = []
+                for group in room.get("groups", []):
+                    gb = group_tpl
+                    page_span = _find_for_block(gb, "{% for page in group.pages %}")
+                    if page_span:
+                        p_start, p_inner, p_end, p_close = page_span
+                        page_blocks = [
+                            _render_page_block(gb[p_inner:p_end], page)
+                            for page in group.get("pages", [])
+                        ]
+                        gb = gb[:p_start] + "\n".join(page_blocks) + gb[p_close:]
+                    gb = gb.replace("{{ group.name }}", group.get("name", ""))
+                    gb = gb.replace("{{ group.id }}", group.get("id", ""))
+                    group_blocks.append(gb)
+                block = block[:g_start] + "\n".join(group_blocks) + block[g_close:]
             page_span = _find_for_block(block, "{% for page in room.pages %}")
             if page_span:
                 p_start, p_inner, p_end, p_close = page_span
@@ -263,6 +326,7 @@ def generate() -> None:
                 "error": error if error else "",
                 "updated_at": updated_at,
                 "room": page.get("room", ""),
+                "track": page.get("track", ""),
             }
         )
 
@@ -300,6 +364,7 @@ def generate() -> None:
                 "error": p["error"],
                 "updated_at": p["updated_at"],
                 "room": p["room"],
+                "track": p.get("track", ""),
             }
             for p in page_data
         ],

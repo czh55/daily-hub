@@ -19,7 +19,8 @@
       "url": "https://chenzhiheng.cn/daily-algo/",
       "emoji": "🧮",
       "description": "每日算法练习",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "audio-workshop",
@@ -43,7 +44,8 @@
       "url": "https://chenzhiheng.cn/daily-tech-learning/",
       "emoji": "💻",
       "description": "每日技术学习",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "dayai",
@@ -51,7 +53,8 @@
       "url": "https://chenzhiheng.cn/DayAI/",
       "emoji": "🤖",
       "description": "AI 实践记录",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "video-notes",
@@ -67,7 +70,8 @@
       "url": "https://chenzhiheng.cn/language_paraphrase/",
       "emoji": "✍️",
       "description": "语言改写练习",
-      "room": "study"
+      "room": "study",
+      "track": "voice"
     },
     {
       "id": "drama-analysis",
@@ -91,7 +95,8 @@
       "url": "https://chenzhiheng.cn/bear2cursor/",
       "emoji": "🐻",
       "description": "知识世界旅行 · Bear 笔记迁移",
-      "room": "study"
+      "room": "study",
+      "track": "culture"
     },
     {
       "id": "daily-meet-question",
@@ -99,7 +104,8 @@
       "url": "https://chenzhiheng.cn/daily_meet_question/",
       "emoji": "🎤",
       "description": "每日面试问答 · 知识点深挖",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "daily-design",
@@ -107,7 +113,8 @@
       "url": "https://chenzhiheng.cn/daily-design/",
       "emoji": "🎨",
       "description": "视觉设计师审美认知系统",
-      "room": "study"
+      "room": "study",
+      "track": "culture"
     },
     {
       "id": "my-podcast",
@@ -123,7 +130,8 @@
       "url": "https://chenzhiheng.cn/english-system/",
       "emoji": "🔤",
       "description": "英语四模块学习站",
-      "room": "study"
+      "room": "study",
+      "track": "voice"
     },
     {
       "id": "express-system",
@@ -131,7 +139,8 @@
       "url": "https://chenzhiheng.cn/express_system/",
       "emoji": "🗣️",
       "description": "表达系统",
-      "room": "study"
+      "room": "study",
+      "track": "voice"
     }
   ]
 }

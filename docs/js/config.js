@@ -12,7 +12,7 @@ export const ROOMS = {
   study: {
     id: "study",
     name: "书房",
-    life: "白天的主阵地",
+    life: "硬功 · 开口 · 修养",
     bounds: { x: -3.7, z: -3.1, w: 4.6, d: 4.2 },
   },
   bedroom: {
@@ -59,6 +59,33 @@ export const ROOMS = {
   },
 };
 
+/** 书房三条线。硬功是题和工，开口是嘴，修养是眼和笔记。 */
+export const TRACKS = {
+  craft: { id: "craft", name: "硬功" },
+  voice: { id: "voice", name: "开口" },
+  culture: { id: "culture", name: "修养" },
+};
+
+export const TRACK_ORDER = ["craft", "voice", "culture"];
+
+/** 进书房后，三条线落在家具上的世界坐标。 */
+export const TRACK_MARKERS = [
+  { track: "craft", position: [-4.55, 1.72, -3.18] },
+  { track: "voice", position: [-2.85, 1.72, -4.88] },
+  { track: "culture", position: [-2.35, 1.28, -1.85] },
+];
+
+export function groupIdsByTrack(ids) {
+  const groups = [];
+  for (const trackId of TRACK_ORDER) {
+    const items = ids.filter((id) => CONTENTS[id]?.track === trackId);
+    if (items.length) groups.push({ track: TRACKS[trackId], ids: items });
+  }
+  const rest = ids.filter((id) => CONTENTS[id] && !CONTENTS[id].track);
+  if (rest.length) groups.push({ track: null, ids: rest });
+  return groups;
+}
+
 export const CONTENTS = {
   "daily-photos": {
     id: "daily-photos",
@@ -74,6 +101,7 @@ export const CONTENTS = {
     description: "每日算法练习",
     url: "https://chenzhiheng.cn/daily-algo/",
     rooms: ["study"],
+    track: "craft",
     fallback: "坐下第一件事，是一道会说话的题。",
   },
   "daily-meet-question": {
@@ -82,6 +110,7 @@ export const CONTENTS = {
     description: "每日面试问答 · 知识点深挖",
     url: "https://chenzhiheng.cn/daily_meet_question/",
     rooms: ["study"],
+    track: "craft",
     fallback: "把一个名词拆开讲，知道名字不够，要答得出深度。",
   },
   "express-system": {
@@ -90,6 +119,7 @@ export const CONTENTS = {
     description: "控情绪、热嘴、按场景开口",
     url: "https://chenzhiheng.cn/express_system/",
     rooms: ["study"],
+    track: "voice",
     fallback: "先控情绪，再热嘴，按场景开口，卡壳时回补结构与氛围。",
   },
   "daily-tech-learning": {
@@ -98,6 +128,7 @@ export const CONTENTS = {
     description: "每日技术深度总结",
     url: "https://chenzhiheng.cn/daily-tech-learning/",
     rooms: ["study"],
+    track: "craft",
     fallback: "把今天新懂的那一层，写成增量知识。",
   },
   dayai: {
@@ -106,6 +137,7 @@ export const CONTENTS = {
     description: "AI 实践与行业记录",
     url: "https://chenzhiheng.cn/DayAI/",
     rooms: ["study"],
+    track: "craft",
     fallback: "工具在变，他记下正在发生的事。",
   },
   "language-paraphrase": {
@@ -114,6 +146,7 @@ export const CONTENTS = {
     description: "场景式英语改写",
     url: "https://chenzhiheng.cn/language_paraphrase/",
     rooms: ["study"],
+    track: "voice",
     fallback: "改一句英语，像把句子重新住进场景里。",
   },
   "english-system": {
@@ -122,6 +155,7 @@ export const CONTENTS = {
     description: "结构化练习路径",
     url: "https://chenzhiheng.cn/english-system/",
     rooms: ["study"],
+    track: "voice",
     fallback: "非实体词、话术框架、场景开口、实体词。先记词，再套框架，最后开口。",
   },
   bear2cursor: {
@@ -130,6 +164,7 @@ export const CONTENTS = {
     description: "知识世界旅行",
     url: "https://chenzhiheng.cn/bear2cursor/",
     rooms: ["study"],
+    track: "culture",
     fallback: "旧笔记被一站一站安放到地图上。",
   },
   "daily-design": {
@@ -138,6 +173,7 @@ export const CONTENTS = {
     description: "视觉设计师审美认知系统",
     url: "https://chenzhiheng.cn/daily-design/",
     rooms: ["study"],
+    track: "culture",
     fallback: "先看差异，再读清单。感觉要练成判断力。",
   },
   "audio-workshop": {
@@ -260,7 +296,7 @@ export const DAY_STOPS = [
   {
     id: "algo",
     time: "09:00",
-    title: "算法",
+    title: "硬功",
     roomId: "study",
     stand: [-3.55, -2.85],
     via: [
@@ -270,14 +306,14 @@ export const DAY_STOPS = [
     ],
     camera: [ -1.2, 4.5, -0.6 ],
     lookAt: [ -3.7, 0.75, -3.15 ],
-    contentIds: ["daily-algo", "daily-meet-question", "express-system"],
+    contentIds: ["daily-algo", "daily-meet-question"],
     narrative:
-      "坐下第一件事不是打开消息。是一道算法题，再练开口——面试要答得出深度，表达系统把嘴先热开。",
+      "坐下第一件事是硬功。一道算法，再把一个名词拆开讲到深处。",
   },
   {
     id: "tech",
     time: "10:30",
-    title: "技术与 AI",
+    title: "硬功",
     roomId: "study",
     stand: [-3.7, -3.35],
     via: [[-3.7, -3.2]],
@@ -285,20 +321,20 @@ export const DAY_STOPS = [
     lookAt: [ -3.75, 0.8, -3.2 ],
     contentIds: ["daily-tech-learning", "dayai"],
     narrative:
-      "屏幕亮着，但不刺眼。他把今天学到的一层写成增量知识，也记下工具和行业里正在发生的事。",
+      "还是硬功。屏幕亮着，他把今天新懂的一层写成增量，也记下工具和行业里正在发生的事。",
   },
   {
     id: "notes",
     time: "11:40",
-    title: "语言与笔记",
+    title: "开口 · 修养",
     roomId: "study",
     stand: [-2.4, -3.6],
     via: [[-2.6, -3.5]],
     camera: [ -0.8, 4.3, -1.5 ],
     lookAt: [ -3.2, 0.85, -3.4 ],
-    contentIds: ["language-paraphrase", "english-system", "bear2cursor", "daily-design"],
+    contentIds: ["english-system", "language-paraphrase", "express-system", "bear2cursor", "daily-design"],
     narrative:
-      "先走英语四模块：词、框架、开口。再改一句、迁一条旧笔记，拆一组配色和留白。",
+      "换口气。英语四模块把嘴打开，表达系统接着练。再迁一条旧笔记，看一组配色和留白。",
   },
   {
     id: "lunch",

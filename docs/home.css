@@ -43,6 +43,40 @@ body {
   color: var(--ink);
 }
 
+.label3d-name,
+.label3d-sub {
+  display: block;
+  text-align: center;
+}
+
+.label3d-sub {
+  margin-top: 3px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(212, 198, 178, 0.58);
+}
+
+.label3d.is-dim {
+  opacity: 0.28;
+}
+
+.label3d-track {
+  font-size: 14px;
+  letter-spacing: 0.28em;
+  color: rgba(212, 198, 178, 0.22);
+  opacity: 0;
+  transition: opacity 0.35s ease, color 0.2s ease;
+}
+
+.label3d-track.is-shown {
+  opacity: 1;
+  color: rgba(212, 198, 178, 0.92);
+}
+
+.label3d-track.is-hot {
+  color: var(--ink);
+}
+
 .vignette {
   position: fixed;
   inset: 0;
@@ -291,6 +325,18 @@ body {
 .links {
   display: flex;
   flex-direction: column;
+}
+
+.link-track {
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  margin: 14px 0 2px;
+}
+
+.link-track:first-child {
+  margin-top: 2px;
 }
 
 .link {
