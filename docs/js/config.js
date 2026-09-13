@@ -108,6 +108,14 @@ export const CONTENTS = {
     rooms: ["study"],
     fallback: "改一句英语，像把句子重新住进场景里。",
   },
+  "english-system": {
+    id: "english-system",
+    name: "英语四模块",
+    description: "结构化练习路径",
+    url: "https://chenzhiheng.cn/english-system/",
+    rooms: ["study"],
+    fallback: "非实体词、话术框架、场景开口、实体词。先记词，再套框架，最后开口。",
+  },
   bear2cursor: {
     id: "bear2cursor",
     name: "笔记与知识",
@@ -280,9 +288,9 @@ export const DAY_STOPS = [
     via: [[-2.6, -3.5]],
     camera: [ -0.8, 4.3, -1.5 ],
     lookAt: [ -3.2, 0.85, -3.4 ],
-    contentIds: ["language-paraphrase", "bear2cursor", "daily-design"],
+    contentIds: ["language-paraphrase", "english-system", "bear2cursor", "daily-design"],
     narrative:
-      "改一句英语，迁一条旧笔记，再拆一组配色和留白。知识像旅行，眼睛也要练成判断力。",
+      "先走英语四模块：词、框架、开口。再改一句、迁一条旧笔记，拆一组配色和留白。",
   },
   {
     id: "lunch",

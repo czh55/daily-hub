@@ -141,6 +141,16 @@
       "error": "",
       "updated_at": "标题: 才岁播客 · 十年一期",
       "room": "dining"
+    },
+    {
+      "id": "english-system",
+      "name": "English System",
+      "url": "https://chenzhiheng.cn/english-system/",
+      "description": "英语四模块学习站",
+      "snippet": "非实体词、话术框架、场景开口、实体词",
+      "error": "",
+      "updated_at": "标题: 英语四模块学习站",
+      "room": "study"
     }
   ]
 }

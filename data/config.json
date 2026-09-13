@@ -116,6 +116,14 @@
       "emoji": "🎙️",
       "description": "才岁播客",
       "room": "dining"
+    },
+    {
+      "id": "english-system",
+      "name": "English System",
+      "url": "https://chenzhiheng.cn/english-system/",
+      "emoji": "🔤",
+      "description": "英语四模块学习站",
+      "room": "study"
     }
   ]
 }
