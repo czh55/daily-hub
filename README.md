@@ -26,7 +26,7 @@
 | Daily Lyric Learning | https://chenzhiheng.cn/daily-lyric-learning/ |
 | Daily Tech Learning | https://chenzhiheng.cn/daily-tech-learning/ |
 | DayAI | https://chenzhiheng.cn/DayAI/ |
-| Bilibili Workshow | https://chenzhiheng.cn/bilibili-workshow/ |
+| Video Notes | https://chenzhiheng.cn/video-notes/ |
 | Language Paraphrase | https://chenzhiheng.cn/language_paraphrase/ |
 | Drama Analysis | https://chenzhiheng.cn/drama-analysis/ |
 | Tour Map | https://chenzhiheng.cn/tour_map/ |

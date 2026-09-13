@@ -63,11 +63,11 @@
       "room": "study"
     },
     {
-      "id": "bilibili-workshow",
-      "name": "Bilibili Workshow",
-      "url": "https://chenzhiheng.cn/bilibili-workshow/",
-      "description": "B 站视频总结墙",
-      "snippet": "视频总结墙",
+      "id": "video-notes",
+      "name": "Video Notes",
+      "url": "https://chenzhiheng.cn/video-notes/",
+      "description": "视频总结墙",
+      "snippet": "B 站 / 小红书视频双轨总结",
       "error": "",
       "updated_at": "标题: 视频总结墙 · B站 / 小红书",
       "room": "living"

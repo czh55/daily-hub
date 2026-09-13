@@ -650,7 +650,7 @@ function buildLiving(THREE, house, mats) {
   tv.add(box(THREE, 1.35, 0.72, 0.05, mats.screen, 0, 0.55, 0));
   tv.add(box(THREE, 1.5, 0.38, 0.36, mats.oak, 0, 0.19, 0.05));
   tv.position.set(-0.2, 0, -1.85);
-  mark(tv, { type: "hotspot", roomId: "living", contentIds: ["bilibili-workshow", "drama-analysis"] });
+  mark(tv, { type: "hotspot", roomId: "living", contentIds: ["video-notes", "drama-analysis"] });
   g.add(tv);
 
   const floorLamp = new THREE.Group();

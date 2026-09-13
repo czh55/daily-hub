@@ -54,11 +54,11 @@
       "room": "study"
     },
     {
-      "id": "bilibili-workshow",
-      "name": "Bilibili Workshow",
-      "url": "https://chenzhiheng.cn/bilibili-workshow/",
+      "id": "video-notes",
+      "name": "Video Notes",
+      "url": "https://chenzhiheng.cn/video-notes/",
       "emoji": "📺",
-      "description": "B 站视频总结墙",
+      "description": "视频总结墙",
       "room": "living"
     },
     {

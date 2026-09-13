@@ -156,11 +156,11 @@ export const CONTENTS = {
     rooms: ["living"],
     fallback: "唱片转着，他把一句歌词拆开看。",
   },
-  "bilibili-workshow": {
-    id: "bilibili-workshow",
-    name: "视频观看",
-    description: "B 站 / 小红书总结墙",
-    url: "https://chenzhiheng.cn/bilibili-workshow/",
+  "video-notes": {
+    id: "video-notes",
+    name: "视频总结墙",
+    description: "B 站 / 小红书",
+    url: "https://chenzhiheng.cn/video-notes/",
     rooms: ["living"],
     fallback: "别人的剪辑看完，留下自己的总结。",
   },
@@ -332,7 +332,7 @@ export const DAY_STOPS = [
     via: [[0.8, 1.1]],
     camera: [ 3.4, 4.5, -1.2 ],
     lookAt: [ 1.1, 0.65, 1.4 ],
-    contentIds: ["bilibili-workshow", "drama-analysis"],
+    contentIds: ["video-notes", "drama-analysis"],
     narrative:
       "电视里是别人的剪辑和别人的剧本。他看完，会留下自己的总结——看，也是一种书写。",
   },
