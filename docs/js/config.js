@@ -84,6 +84,14 @@ export const CONTENTS = {
     rooms: ["study"],
     fallback: "把一个名词拆开讲，知道名字不够，要答得出深度。",
   },
+  "express-system": {
+    id: "express-system",
+    name: "表达系统",
+    description: "控情绪、热嘴、按场景开口",
+    url: "https://chenzhiheng.cn/express_system/",
+    rooms: ["study"],
+    fallback: "先控情绪，再热嘴，按场景开口，卡壳时回补结构与氛围。",
+  },
   "daily-tech-learning": {
     id: "daily-tech-learning",
     name: "技术学习",
@@ -262,9 +270,9 @@ export const DAY_STOPS = [
     ],
     camera: [ -1.2, 4.5, -0.6 ],
     lookAt: [ -3.7, 0.75, -3.15 ],
-    contentIds: ["daily-algo", "daily-meet-question"],
+    contentIds: ["daily-algo", "daily-meet-question", "express-system"],
     narrative:
-      "坐下第一件事不是打开消息。是一道算法题，再练一道面试口述。知道名字不够，要答得出深度。",
+      "坐下第一件事不是打开消息。是一道算法题，再练开口——面试要答得出深度，表达系统把嘴先热开。",
   },
   {
     id: "tech",

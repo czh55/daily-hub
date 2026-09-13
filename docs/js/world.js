@@ -506,7 +506,7 @@ function buildStudy(THREE, house, mats) {
 
   const board = box(THREE, 1.05, 0.7, 0.03, mats.plasterDark, 1.95, 1.45, -0.2);
   board.rotation.y = -Math.PI / 2;
-  mark(board, { type: "hotspot", roomId: "study", contentIds: ["daily-algo", "daily-meet-question"] });
+  mark(board, { type: "hotspot", roomId: "study", contentIds: ["daily-algo", "daily-meet-question", "express-system"] });
   g.add(board);
   g.add(box(THREE, 0.22, 0.02, 0.16, mats.linen, -1.2, 0.775, 0.18));
 

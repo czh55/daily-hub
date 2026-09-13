@@ -151,6 +151,16 @@
       "error": "",
       "updated_at": "标题: 英语四模块学习站",
       "room": "study"
+    },
+    {
+      "id": "express-system",
+      "name": "Express System",
+      "url": "https://chenzhiheng.cn/express_system/",
+      "description": "表达系统",
+      "snippet": "情绪底座、练嘴热身、场景开口、通用技巧",
+      "error": "",
+      "updated_at": "标题: 表达系统",
+      "room": "study"
     }
   ]
 }

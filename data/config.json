@@ -124,6 +124,14 @@
       "emoji": "🔤",
       "description": "英语四模块学习站",
       "room": "study"
+    },
+    {
+      "id": "express-system",
+      "name": "Express System",
+      "url": "https://chenzhiheng.cn/express_system/",
+      "emoji": "🗣️",
+      "description": "表达系统",
+      "room": "study"
     }
   ]
 }
