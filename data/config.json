@@ -141,6 +141,15 @@
       "description": "表达系统",
       "room": "study",
       "track": "voice"
+    },
+    {
+      "id": "my-pipeline",
+      "name": "My Pipeline",
+      "url": "https://chenzhiheng.cn/my_pipeline/pipelines/",
+      "emoji": "⚙️",
+      "description": "生活流水线章程 · 经验固化为可复用流程",
+      "room": "study",
+      "track": "craft"
     }
   ]
 }

@@ -176,6 +176,15 @@ export const CONTENTS = {
     track: "culture",
     fallback: "先看差异，再读清单。感觉要练成判断力。",
   },
+  "my-pipeline": {
+    id: "my-pipeline",
+    name: "流水线章程",
+    description: "生活流水线 · 经验固化",
+    url: "https://chenzhiheng.cn/my_pipeline/pipelines/",
+    rooms: ["study"],
+    track: "craft",
+    fallback: "把一次经历写成可复用的步骤，再跑下一遍。",
+  },
   "audio-workshop": {
     id: "audio-workshop",
     name: "播客记录",
@@ -319,9 +328,9 @@ export const DAY_STOPS = [
     via: [[-3.7, -3.2]],
     camera: [ -1.35, 4.4, -1.0 ],
     lookAt: [ -3.75, 0.8, -3.2 ],
-    contentIds: ["daily-tech-learning", "dayai"],
+    contentIds: ["daily-tech-learning", "dayai", "my-pipeline"],
     narrative:
-      "还是硬功。屏幕亮着，他把今天新懂的一层写成增量，也记下工具和行业里正在发生的事。",
+      "还是硬功。屏幕亮着，他把今天新懂的一层写成增量，也记下工具和行业里正在发生的事；偶尔把一次经历固化成可再跑的流水线。",
   },
   {
     id: "notes",

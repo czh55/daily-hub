@@ -457,7 +457,7 @@ function buildStudy(THREE, house, mats) {
   desk.add(box(THREE, 0.42, 0.28, 0.52, mats.teak, 0.52, 0.28, 0));
   desk.position.set(-1.35, 0, -0.15);
   desk.rotation.y = Math.PI / 2;
-  mark(desk, { type: "hotspot", roomId: "study", track: "craft", contentIds: ["daily-tech-learning", "dayai"] });
+  mark(desk, { type: "hotspot", roomId: "study", track: "craft", contentIds: ["daily-tech-learning", "dayai", "my-pipeline"] });
   g.add(desk);
 
   const monitor = box(THREE, 0.52, 0.32, 0.03, mats.screen, -1.55, 1.05, -0.15);

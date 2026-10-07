@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-05 10:45:15",
-  "date": "2026-09-05",
+  "generated_at": "2026-10-07 21:53:03",
+  "date": "2026-10-07",
   "pages": [
     {
       "id": "daily-photos",
@@ -10,7 +10,8 @@
       "snippet": "每日摄影推荐",
       "error": "",
       "updated_at": "标题: 每日摄影推荐 | Daily Photography",
-      "room": "bedroom"
+      "room": "bedroom",
+      "track": ""
     },
     {
       "id": "daily-algo",
@@ -20,7 +21,8 @@
       "snippet": "每日一道算法题",
       "error": "",
       "updated_at": "标题: 每日算法 · 变量语义法",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "audio-workshop",
@@ -30,7 +32,8 @@
       "snippet": "播客知识墙",
       "error": "",
       "updated_at": "标题: 播客知识墙",
-      "room": "dining"
+      "room": "dining",
+      "track": ""
     },
     {
       "id": "daily-lyric-learning",
@@ -40,7 +43,8 @@
       "snippet": "Daily Lyric Learning",
       "error": "",
       "updated_at": "标题: Daily Lyric Learning · 每日英文歌词学习",
-      "room": "living"
+      "room": "living",
+      "track": ""
     },
     {
       "id": "daily-tech-learning",
@@ -50,7 +54,8 @@
       "snippet": "📚 每日技术深度总结",
       "error": "",
       "updated_at": "标题: 每日技术学习 · AI 增量知识库",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "dayai",
@@ -60,17 +65,19 @@
       "snippet": "DayAI — 每日 AI 资讯总结，Claude Code、Cursor、Codex 与国内行业动态",
       "error": "",
       "updated_at": "标题: DayAI 每日资讯",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "video-notes",
       "name": "Video Notes",
       "url": "https://chenzhiheng.cn/video-notes/",
       "description": "视频总结墙",
-      "snippet": "B 站 / 小红书视频双轨总结",
+      "snippet": "视频总结墙",
       "error": "",
       "updated_at": "标题: 视频总结墙 · B站 / 小红书",
-      "room": "living"
+      "room": "living",
+      "track": ""
     },
     {
       "id": "language-paraphrase",
@@ -80,7 +87,8 @@
       "snippet": "场景式英语学习墙",
       "error": "",
       "updated_at": "标题: 场景式英语学习墙",
-      "room": "study"
+      "room": "study",
+      "track": "voice"
     },
     {
       "id": "drama-analysis",
@@ -90,17 +98,19 @@
       "snippet": "剧集剧情总结墙",
       "error": "",
       "updated_at": "标题: 剧集剧情总结墙 · Drama Analysis",
-      "room": "living"
+      "room": "living",
+      "track": ""
     },
     {
       "id": "tour-map",
       "name": "Tour Map",
       "url": "https://chenzhiheng.cn/tour_map/",
       "description": "旅行攻略",
-      "snippet": "世界地图，点开目的地看攻略",
+      "snippet": "旅行攻略",
       "error": "",
       "updated_at": "标题: 旅行攻略 · 世界地图",
-      "room": "balcony"
+      "room": "balcony",
+      "track": ""
     },
     {
       "id": "bear2cursor",
@@ -110,7 +120,8 @@
       "snippet": "这段旅程经过的每一站，恰好对应你知识库中的一个领域。我们用一张地图来看全貌：",
       "error": "",
       "updated_at": "标题: 知识世界旅行",
-      "room": "study"
+      "room": "study",
+      "track": "culture"
     },
     {
       "id": "daily-meet-question",
@@ -120,7 +131,8 @@
       "snippet": "每日一道面试题",
       "error": "",
       "updated_at": "标题: 每日面试问答 · 知识点深挖",
-      "room": "study"
+      "room": "study",
+      "track": "craft"
     },
     {
       "id": "daily-design",
@@ -130,37 +142,52 @@
       "snippet": "视觉设计师的审美认知系统",
       "error": "",
       "updated_at": "标题: 视觉设计师审美认知系统 · 知识专题",
-      "room": "study"
+      "room": "study",
+      "track": "culture"
     },
     {
       "id": "my-podcast",
       "name": "My Podcast",
       "url": "https://chenzhiheng.cn/my_podcast/",
       "description": "才岁播客",
-      "snippet": "十年一期，从才30谈年龄与社会",
+      "snippet": "才岁",
       "error": "",
       "updated_at": "标题: 才岁播客 · 十年一期",
-      "room": "dining"
+      "room": "dining",
+      "track": ""
     },
     {
       "id": "english-system",
       "name": "English System",
       "url": "https://chenzhiheng.cn/english-system/",
       "description": "英语四模块学习站",
-      "snippet": "非实体词、话术框架、场景开口、实体词",
+      "snippet": "英语四模块学习站",
       "error": "",
-      "updated_at": "标题: 英语四模块学习站",
-      "room": "study"
+      "updated_at": "标题: 首页 · english-system",
+      "room": "study",
+      "track": "voice"
     },
     {
       "id": "express-system",
       "name": "Express System",
       "url": "https://chenzhiheng.cn/express_system/",
       "description": "表达系统",
-      "snippet": "情绪底座、练嘴热身、场景开口、通用技巧",
+      "snippet": "表达系统",
       "error": "",
-      "updated_at": "标题: 表达系统",
-      "room": "study"
+      "updated_at": "标题: 首页 · express-system",
+      "room": "study",
+      "track": "voice"
+    },
+    {
+      "id": "my-pipeline",
+      "name": "My Pipeline",
+      "url": "https://chenzhiheng.cn/my_pipeline/pipelines/",
+      "description": "生活流水线章程 · 经验固化为可复用流程",
+      "snippet": "Pipelines",
+      "error": "",
+      "updated_at": "标题: 全部章程 · my_pipeline",
+      "room": "study",
+      "track": "craft"
     }
   ]
 }
