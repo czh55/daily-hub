@@ -32,6 +32,13 @@
     
   </nav>
 
+  <nav class="hub-flow" aria-label="按进出筛选">
+    <button type="button" class="flow-btn is-on" data-flow="">全部</button>
+    <button type="button" class="flow-btn" data-flow="in">输入</button>
+    <button type="button" class="flow-btn" data-flow="out">输出</button>
+    <button type="button" class="flow-btn" data-flow="loop">进出</button>
+  </nav>
+
   <main class="hub">
     
     <section class="hub-room" id="room-study">
@@ -40,40 +47,45 @@
         
         <h3 class="hub-track">硬功</h3>
         
-        <a href="https://chenzhiheng.cn/daily-algo/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/daily-algo/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Daily Algo</p>
+          <p class="card-facets">进出 · 文字</p>
           <h3 class="card-title">每日算法练习</h3>
           <p class="card-snippet">每日一道算法题</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/daily-tech-learning/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/daily-tech-learning/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Daily Tech Learning</p>
+          <p class="card-facets">进出 · 文字</p>
           <h3 class="card-title">每日技术学习</h3>
           <p class="card-snippet">📚 每日技术深度总结</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/DayAI/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/DayAI/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">DayAI</p>
+          <p class="card-facets">进出 · 文字</p>
           <h3 class="card-title">AI 实践记录</h3>
           <p class="card-snippet">DayAI — 每日 AI 资讯总结，Claude Code、Cursor、Codex 与国内行业动态</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/daily_meet_question/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/daily_meet_question/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Daily Meet Question</p>
+          <p class="card-facets">进出 · 文字 · 声音</p>
           <h3 class="card-title">每日面试问答 · 知识点深挖</h3>
           <p class="card-snippet">每日一道面试题</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/my_pipeline/pipelines/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/my_pipeline/pipelines/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">My Pipeline</p>
+          <p class="card-facets">输出 · 文字</p>
           <h3 class="card-title">生活流水线章程 · 经验固化为可复用流程</h3>
           <p class="card-snippet">Pipelines</p>
           <p class="card-error"></p>
@@ -83,24 +95,27 @@
 
         <h3 class="hub-track">开口</h3>
         
-        <a href="https://chenzhiheng.cn/language_paraphrase/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/language_paraphrase/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Language Paraphrase</p>
+          <p class="card-facets">进出 · 文字</p>
           <h3 class="card-title">语言改写练习</h3>
           <p class="card-snippet">场景式英语学习墙</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/english-system/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/english-system/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">English System</p>
+          <p class="card-facets">进出 · 文字</p>
           <h3 class="card-title">英语四模块学习站</h3>
           <p class="card-snippet">英语四模块学习站</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/express_system/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/express_system/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Express System</p>
+          <p class="card-facets">进出 · 文字 · 声音</p>
           <h3 class="card-title">表达系统</h3>
           <p class="card-snippet">表达系统</p>
           <p class="card-error"></p>
@@ -110,16 +125,18 @@
 
         <h3 class="hub-track">修养</h3>
         
-        <a href="https://chenzhiheng.cn/bear2cursor/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/bear2cursor/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">Bear2Cursor</p>
+          <p class="card-facets">输出 · 文字</p>
           <h3 class="card-title">知识世界旅行 · Bear 笔记迁移</h3>
           <p class="card-snippet">这段旅程经过的每一站，恰好对应你知识库中的一个领域。我们用一张地图来看全貌：</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/daily-design/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/daily-design/" class="hub-card" data-flow="in" target="_blank" rel="noopener">
           <p class="card-kicker">Daily Design</p>
+          <p class="card-facets">输入 · 文字 · 图片</p>
           <h3 class="card-title">视觉设计师审美认知系统</h3>
           <p class="card-snippet">视觉设计师的审美认知系统</p>
           <p class="card-error"></p>
@@ -136,24 +153,27 @@
         
         <h3 class="hub-track"></h3>
         
-        <a href="https://chenzhiheng.cn/daily-lyric-learning/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/daily-lyric-learning/" class="hub-card" data-flow="in" target="_blank" rel="noopener">
           <p class="card-kicker">Daily Lyric Learning</p>
+          <p class="card-facets">输入 · 文字 · 声音</p>
           <h3 class="card-title">每日歌词学习</h3>
           <p class="card-snippet">Daily Lyric Learning</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/video-notes/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/video-notes/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Video Notes</p>
+          <p class="card-facets">进出 · 文字 · 视频</p>
           <h3 class="card-title">视频总结墙</h3>
           <p class="card-snippet">视频总结墙</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/drama-analysis/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/drama-analysis/" class="hub-card" data-flow="loop" target="_blank" rel="noopener">
           <p class="card-kicker">Drama Analysis</p>
+          <p class="card-facets">进出 · 文字 · 视频</p>
           <h3 class="card-title">影视戏剧分析</h3>
           <p class="card-snippet">剧集剧情总结墙</p>
           <p class="card-error"></p>
@@ -170,16 +190,18 @@
         
         <h3 class="hub-track"></h3>
         
-        <a href="https://chenzhiheng.cn/daily-photos/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/daily-photos/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">Daily Photos</p>
+          <p class="card-facets">输出 · 图片</p>
           <h3 class="card-title">每日摄影作品</h3>
           <p class="card-snippet">每日摄影推荐</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/image_show/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/image_show/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">Image Show</p>
+          <p class="card-facets">输出 · 图片</p>
           <h3 class="card-title">个人图片画廊 · 系列精选</h3>
           <p class="card-snippet">精选照片的个人编辑式画廊，托管于 GitHub Pages。</p>
           <p class="card-error"></p>
@@ -196,16 +218,18 @@
         
         <h3 class="hub-track"></h3>
         
-        <a href="https://chenzhiheng.cn/audio-workshop/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/audio-workshop/" class="hub-card" data-flow="in" target="_blank" rel="noopener">
           <p class="card-kicker">Audio Workshop</p>
+          <p class="card-facets">输入 · 文字 · 声音</p>
           <h3 class="card-title">音频工作坊</h3>
           <p class="card-snippet">播客知识墙</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/my_podcast/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/my_podcast/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">My Podcast</p>
+          <p class="card-facets">输出 · 声音</p>
           <h3 class="card-title">才岁播客</h3>
           <p class="card-snippet">才岁</p>
           <p class="card-error"></p>
@@ -222,16 +246,18 @@
         
         <h3 class="hub-track"></h3>
         
-        <a href="https://chenzhiheng.cn/tour_map/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/tour_map/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">Tour Map</p>
+          <p class="card-facets">输出 · 文字</p>
           <h3 class="card-title">旅行攻略</h3>
           <p class="card-snippet">旅行攻略</p>
           <p class="card-error"></p>
         </a>
         
 
-        <a href="https://chenzhiheng.cn/plan_100/" class="hub-card" target="_blank" rel="noopener">
+        <a href="https://chenzhiheng.cn/plan_100/" class="hub-card" data-flow="out" target="_blank" rel="noopener">
           <p class="card-kicker">Plan 100</p>
+          <p class="card-facets">输出 · 文字</p>
           <h3 class="card-title">退休后的一百件事</h3>
           <p class="card-snippet">退休后的一百件事 —— 从日常念头里，慢慢凑齐一百件值得去做的事</p>
           <p class="card-error"></p>
@@ -244,7 +270,43 @@
   </main>
 
   <footer class="hub-footer">
-    <p>自动更新于 2026-10-09 22:17:29 · <a href="../">房子首页</a> · <a href="./">往期归档</a></p>
+    <p>自动更新于 2026-10-09 22:57:17 · <a href="../">房子首页</a> · <a href="./">往期归档</a></p>
   </footer>
+
+  <script>
+    (() => {
+      const buttons = document.querySelectorAll(".flow-btn");
+      const cards = document.querySelectorAll(".hub-card");
+      const rooms = document.querySelectorAll(".hub-room");
+      const tracks = document.querySelectorAll(".hub-track");
+
+      function applyFlow(flow) {
+        buttons.forEach((btn) => {
+          btn.classList.toggle("is-on", btn.dataset.flow === flow);
+        });
+        cards.forEach((card) => {
+          const match = !flow || card.dataset.flow === flow;
+          card.hidden = !match;
+        });
+        tracks.forEach((track) => {
+          let next = track.nextElementSibling;
+          let visible = false;
+          while (next && !next.classList.contains("hub-track")) {
+            if (next.classList.contains("hub-card") && !next.hidden) visible = true;
+            next = next.nextElementSibling;
+          }
+          track.hidden = !visible || !track.textContent.trim();
+        });
+        rooms.forEach((room) => {
+          const any = room.querySelector(".hub-card:not([hidden])");
+          room.hidden = !any;
+        });
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => applyFlow(btn.dataset.flow || ""));
+      });
+    })();
+  </script>
 </body>
 </html>

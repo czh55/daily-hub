@@ -11,6 +11,7 @@ import {
   TRACKS,
   TRACK_MARKERS,
   TRACK_ORDER,
+  facetLabel,
   groupIdsByTrack,
 } from "./config.js";
 import { createLightRig } from "./lighting.js";
@@ -496,7 +497,10 @@ class Home {
           a.target = "_blank";
           a.rel = "noopener";
           const snip = this.feedSnippets[id] || c.fallback;
-          a.innerHTML = `<span class="name">${c.name}</span><span class="snip">${snip}</span>`;
+          const facets = facetLabel(c);
+          a.innerHTML = `<span class="name">${c.name}</span>${
+            facets ? `<span class="facet">${facets}</span>` : ""
+          }<span class="snip">${snip}</span>`;
           box.appendChild(a);
         }
       }

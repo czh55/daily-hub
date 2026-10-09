@@ -68,6 +68,28 @@ export const TRACKS = {
 
 export const TRACK_ORDER = ["craft", "voice", "culture"];
 
+/**
+ * 内容生态坐标（与 room / track 正交）：
+ * flow = 相对本人是进、出，还是先吃后吐；
+ * media = 载体，可多选。
+ */
+export const FLOWS = {
+  in: { id: "in", name: "输入" },
+  out: { id: "out", name: "输出" },
+  loop: { id: "loop", name: "进出" },
+};
+
+export const FLOW_ORDER = ["in", "out", "loop"];
+
+export const MEDIA = {
+  text: { id: "text", name: "文字" },
+  audio: { id: "audio", name: "声音" },
+  image: { id: "image", name: "图片" },
+  video: { id: "video", name: "视频" },
+};
+
+export const MEDIA_ORDER = ["text", "audio", "image", "video"];
+
 /** 进书房后，三条线落在家具上的世界坐标。 */
 export const TRACK_MARKERS = [
   { track: "craft", position: [-4.55, 1.72, -3.18] },
@@ -86,6 +108,16 @@ export function groupIdsByTrack(ids) {
   return groups;
 }
 
+export function facetLabel(content) {
+  if (!content) return "";
+  const parts = [];
+  if (content.flow && FLOWS[content.flow]) parts.push(FLOWS[content.flow].name);
+  for (const id of MEDIA_ORDER) {
+    if (content.media?.includes(id)) parts.push(MEDIA[id].name);
+  }
+  return parts.join(" · ");
+}
+
 export const CONTENTS = {
   "daily-photos": {
     id: "daily-photos",
@@ -93,6 +125,8 @@ export const CONTENTS = {
     description: "每日摄影作品",
     url: "https://chenzhiheng.cn/daily-photos/",
     rooms: ["bedroom", "balcony"],
+    flow: "out",
+    media: ["image"],
     fallback: "墙上的光，和阳台上刚举起的那一次。",
   },
   "image-show": {
@@ -101,6 +135,8 @@ export const CONTENTS = {
     description: "个人图片画廊 · 系列精选",
     url: "https://chenzhiheng.cn/image_show/",
     rooms: ["bedroom", "balcony"],
+    flow: "out",
+    media: ["image"],
     fallback: "按系列摆开的照片，比日更更适合慢慢看。",
   },
   "daily-algo": {
@@ -110,6 +146,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/daily-algo/",
     rooms: ["study"],
     track: "craft",
+    flow: "loop",
+    media: ["text"],
     fallback: "坐下第一件事，是一道会说话的题。",
   },
   "daily-meet-question": {
@@ -119,6 +157,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/daily_meet_question/",
     rooms: ["study"],
     track: "craft",
+    flow: "loop",
+    media: ["text", "audio"],
     fallback: "把一个名词拆开讲，知道名字不够，要答得出深度。",
   },
   "express-system": {
@@ -128,6 +168,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/express_system/",
     rooms: ["study"],
     track: "voice",
+    flow: "loop",
+    media: ["text", "audio"],
     fallback: "先控情绪，再热嘴，按场景开口，卡壳时回补结构与氛围。",
   },
   "daily-tech-learning": {
@@ -137,6 +179,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/daily-tech-learning/",
     rooms: ["study"],
     track: "craft",
+    flow: "loop",
+    media: ["text"],
     fallback: "把今天新懂的那一层，写成增量知识。",
   },
   dayai: {
@@ -146,6 +190,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/DayAI/",
     rooms: ["study"],
     track: "craft",
+    flow: "loop",
+    media: ["text"],
     fallback: "工具在变，他记下正在发生的事。",
   },
   "language-paraphrase": {
@@ -155,6 +201,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/language_paraphrase/",
     rooms: ["study"],
     track: "voice",
+    flow: "loop",
+    media: ["text"],
     fallback: "改一句英语，像把句子重新住进场景里。",
   },
   "english-system": {
@@ -164,6 +212,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/english-system/",
     rooms: ["study"],
     track: "voice",
+    flow: "loop",
+    media: ["text"],
     fallback: "非实体词、话术框架、场景开口、实体词。先记词，再套框架，最后开口。",
   },
   bear2cursor: {
@@ -173,6 +223,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/bear2cursor/",
     rooms: ["study"],
     track: "culture",
+    flow: "out",
+    media: ["text"],
     fallback: "旧笔记被一站一站安放到地图上。",
   },
   "daily-design": {
@@ -182,6 +234,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/daily-design/",
     rooms: ["study"],
     track: "culture",
+    flow: "in",
+    media: ["image", "text"],
     fallback: "先看差异，再读清单。感觉要练成判断力。",
   },
   "my-pipeline": {
@@ -191,6 +245,8 @@ export const CONTENTS = {
     url: "https://chenzhiheng.cn/my_pipeline/pipelines/",
     rooms: ["study"],
     track: "craft",
+    flow: "out",
+    media: ["text"],
     fallback: "把一次经历写成可复用的步骤，再跑下一遍。",
   },
   "audio-workshop": {
@@ -199,6 +255,8 @@ export const CONTENTS = {
     description: "播客知识墙",
     url: "https://chenzhiheng.cn/audio-workshop/",
     rooms: ["dining"],
+    flow: "in",
+    media: ["audio", "text"],
     fallback: "早餐时，别人的思考进到这间屋子。",
   },
   "my-podcast": {
@@ -207,6 +265,8 @@ export const CONTENTS = {
     description: "十年一期",
     url: "https://chenzhiheng.cn/my_podcast/",
     rooms: ["dining"],
+    flow: "out",
+    media: ["audio"],
     fallback: "每隔十年做一组系列。从才30开始，谈年龄和社会那些说不清的问题。",
   },
   "daily-lyric-learning": {
@@ -215,6 +275,8 @@ export const CONTENTS = {
     description: "每日英文歌词学习",
     url: "https://chenzhiheng.cn/daily-lyric-learning/",
     rooms: ["living"],
+    flow: "in",
+    media: ["audio", "text"],
     fallback: "唱片转着，他把一句歌词拆开看。",
   },
   "video-notes": {
@@ -223,6 +285,8 @@ export const CONTENTS = {
     description: "B 站 / 小红书",
     url: "https://chenzhiheng.cn/video-notes/",
     rooms: ["living"],
+    flow: "loop",
+    media: ["video", "text"],
     fallback: "别人的剪辑看完，留下自己的总结。",
   },
   "drama-analysis": {
@@ -231,6 +295,8 @@ export const CONTENTS = {
     description: "剧集剧情分析",
     url: "https://chenzhiheng.cn/drama-analysis/",
     rooms: ["living"],
+    flow: "loop",
+    media: ["video", "text"],
     fallback: "一盏灯，一段剧，一层自己的读法。",
   },
   "tour-map": {
@@ -239,6 +305,8 @@ export const CONTENTS = {
     description: "世界地图",
     url: "https://chenzhiheng.cn/tour_map/",
     rooms: ["balcony"],
+    flow: "out",
+    media: ["text"],
     fallback: "蓝调天色里，下一趟路开始显形。",
   },
   "plan-100": {
@@ -247,6 +315,8 @@ export const CONTENTS = {
     description: "退休后的一百件事",
     url: "https://chenzhiheng.cn/plan_100/",
     rooms: ["balcony"],
+    flow: "out",
+    media: ["text"],
     fallback: "从日常念头里，慢慢凑齐一百件值得去做的事。",
   },
 };

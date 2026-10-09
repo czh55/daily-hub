@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09 22:17:29",
+  "generated_at": "2026-10-09 22:57:17",
   "date": "2026-10-09",
   "pages": [
     {
@@ -11,7 +11,12 @@
       "error": "",
       "updated_at": "标题: 每日摄影推荐 | Daily Photography",
       "room": "bedroom",
-      "track": ""
+      "track": "",
+      "flow": "out",
+      "media": [
+        "image"
+      ],
+      "facets": "输出 · 图片"
     },
     {
       "id": "daily-algo",
@@ -22,7 +27,12 @@
       "error": "",
       "updated_at": "标题: 每日算法 · 变量语义法",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": [
+        "text"
+      ],
+      "facets": "进出 · 文字"
     },
     {
       "id": "audio-workshop",
@@ -33,7 +43,13 @@
       "error": "",
       "updated_at": "标题: 播客知识墙",
       "room": "dining",
-      "track": ""
+      "track": "",
+      "flow": "in",
+      "media": [
+        "audio",
+        "text"
+      ],
+      "facets": "输入 · 文字 · 声音"
     },
     {
       "id": "daily-lyric-learning",
@@ -44,7 +60,13 @@
       "error": "",
       "updated_at": "标题: Daily Lyric Learning · 每日英文歌词学习",
       "room": "living",
-      "track": ""
+      "track": "",
+      "flow": "in",
+      "media": [
+        "audio",
+        "text"
+      ],
+      "facets": "输入 · 文字 · 声音"
     },
     {
       "id": "daily-tech-learning",
@@ -55,7 +77,12 @@
       "error": "",
       "updated_at": "标题: 每日技术学习 · AI 增量知识库",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": [
+        "text"
+      ],
+      "facets": "进出 · 文字"
     },
     {
       "id": "dayai",
@@ -66,7 +93,12 @@
       "error": "",
       "updated_at": "标题: DayAI 每日资讯",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": [
+        "text"
+      ],
+      "facets": "进出 · 文字"
     },
     {
       "id": "video-notes",
@@ -77,7 +109,13 @@
       "error": "",
       "updated_at": "标题: 视频总结墙 · B站 / 小红书",
       "room": "living",
-      "track": ""
+      "track": "",
+      "flow": "loop",
+      "media": [
+        "video",
+        "text"
+      ],
+      "facets": "进出 · 文字 · 视频"
     },
     {
       "id": "language-paraphrase",
@@ -88,7 +126,12 @@
       "error": "",
       "updated_at": "标题: 场景式英语学习墙",
       "room": "study",
-      "track": "voice"
+      "track": "voice",
+      "flow": "loop",
+      "media": [
+        "text"
+      ],
+      "facets": "进出 · 文字"
     },
     {
       "id": "drama-analysis",
@@ -99,7 +142,13 @@
       "error": "",
       "updated_at": "标题: 剧集剧情总结墙 · Drama Analysis",
       "room": "living",
-      "track": ""
+      "track": "",
+      "flow": "loop",
+      "media": [
+        "video",
+        "text"
+      ],
+      "facets": "进出 · 文字 · 视频"
     },
     {
       "id": "tour-map",
@@ -110,7 +159,12 @@
       "error": "",
       "updated_at": "标题: 旅行攻略 · 世界地图",
       "room": "balcony",
-      "track": ""
+      "track": "",
+      "flow": "out",
+      "media": [
+        "text"
+      ],
+      "facets": "输出 · 文字"
     },
     {
       "id": "bear2cursor",
@@ -121,7 +175,12 @@
       "error": "",
       "updated_at": "标题: 知识世界旅行",
       "room": "study",
-      "track": "culture"
+      "track": "culture",
+      "flow": "out",
+      "media": [
+        "text"
+      ],
+      "facets": "输出 · 文字"
     },
     {
       "id": "daily-meet-question",
@@ -132,7 +191,13 @@
       "error": "",
       "updated_at": "标题: 每日面试问答 · 知识点深挖",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": [
+        "text",
+        "audio"
+      ],
+      "facets": "进出 · 文字 · 声音"
     },
     {
       "id": "daily-design",
@@ -143,7 +208,13 @@
       "error": "",
       "updated_at": "标题: 视觉设计师审美认知系统 · 知识专题",
       "room": "study",
-      "track": "culture"
+      "track": "culture",
+      "flow": "in",
+      "media": [
+        "image",
+        "text"
+      ],
+      "facets": "输入 · 文字 · 图片"
     },
     {
       "id": "my-podcast",
@@ -154,7 +225,12 @@
       "error": "",
       "updated_at": "标题: 才岁播客 · 十年一期",
       "room": "dining",
-      "track": ""
+      "track": "",
+      "flow": "out",
+      "media": [
+        "audio"
+      ],
+      "facets": "输出 · 声音"
     },
     {
       "id": "english-system",
@@ -165,7 +241,12 @@
       "error": "",
       "updated_at": "标题: 首页 · english-system",
       "room": "study",
-      "track": "voice"
+      "track": "voice",
+      "flow": "loop",
+      "media": [
+        "text"
+      ],
+      "facets": "进出 · 文字"
     },
     {
       "id": "express-system",
@@ -176,7 +257,13 @@
       "error": "",
       "updated_at": "标题: 首页 · express-system",
       "room": "study",
-      "track": "voice"
+      "track": "voice",
+      "flow": "loop",
+      "media": [
+        "text",
+        "audio"
+      ],
+      "facets": "进出 · 文字 · 声音"
     },
     {
       "id": "my-pipeline",
@@ -187,7 +274,12 @@
       "error": "",
       "updated_at": "标题: 全部章程 · my_pipeline",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "out",
+      "media": [
+        "text"
+      ],
+      "facets": "输出 · 文字"
     },
     {
       "id": "image-show",
@@ -198,7 +290,12 @@
       "error": "",
       "updated_at": "标题: Image Show · 个人图片画廊",
       "room": "bedroom",
-      "track": ""
+      "track": "",
+      "flow": "out",
+      "media": [
+        "image"
+      ],
+      "facets": "输出 · 图片"
     },
     {
       "id": "plan-100",
@@ -209,7 +306,12 @@
       "error": "",
       "updated_at": "标题: 退休后的一百件事",
       "room": "balcony",
-      "track": ""
+      "track": "",
+      "flow": "out",
+      "media": [
+        "text"
+      ],
+      "facets": "输出 · 文字"
     }
   ]
 }

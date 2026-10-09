@@ -11,7 +11,9 @@
       "url": "https://chenzhiheng.cn/daily-photos/",
       "emoji": "📷",
       "description": "每日摄影作品",
-      "room": "bedroom"
+      "room": "bedroom",
+      "flow": "out",
+      "media": ["image"]
     },
     {
       "id": "daily-algo",
@@ -20,7 +22,9 @@
       "emoji": "🧮",
       "description": "每日算法练习",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": ["text"]
     },
     {
       "id": "audio-workshop",
@@ -28,7 +32,9 @@
       "url": "https://chenzhiheng.cn/audio-workshop/",
       "emoji": "🎧",
       "description": "音频工作坊",
-      "room": "dining"
+      "room": "dining",
+      "flow": "in",
+      "media": ["audio", "text"]
     },
     {
       "id": "daily-lyric-learning",
@@ -36,7 +42,9 @@
       "url": "https://chenzhiheng.cn/daily-lyric-learning/",
       "emoji": "🎵",
       "description": "每日歌词学习",
-      "room": "living"
+      "room": "living",
+      "flow": "in",
+      "media": ["audio", "text"]
     },
     {
       "id": "daily-tech-learning",
@@ -45,7 +53,9 @@
       "emoji": "💻",
       "description": "每日技术学习",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": ["text"]
     },
     {
       "id": "dayai",
@@ -54,7 +64,9 @@
       "emoji": "🤖",
       "description": "AI 实践记录",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": ["text"]
     },
     {
       "id": "video-notes",
@@ -62,7 +74,9 @@
       "url": "https://chenzhiheng.cn/video-notes/",
       "emoji": "📺",
       "description": "视频总结墙",
-      "room": "living"
+      "room": "living",
+      "flow": "loop",
+      "media": ["video", "text"]
     },
     {
       "id": "language-paraphrase",
@@ -71,7 +85,9 @@
       "emoji": "✍️",
       "description": "语言改写练习",
       "room": "study",
-      "track": "voice"
+      "track": "voice",
+      "flow": "loop",
+      "media": ["text"]
     },
     {
       "id": "drama-analysis",
@@ -79,7 +95,9 @@
       "url": "https://chenzhiheng.cn/drama-analysis/",
       "emoji": "🎭",
       "description": "影视戏剧分析",
-      "room": "living"
+      "room": "living",
+      "flow": "loop",
+      "media": ["video", "text"]
     },
     {
       "id": "tour-map",
@@ -87,7 +105,9 @@
       "url": "https://chenzhiheng.cn/tour_map/",
       "emoji": "🗺️",
       "description": "旅行攻略",
-      "room": "balcony"
+      "room": "balcony",
+      "flow": "out",
+      "media": ["text"]
     },
     {
       "id": "bear2cursor",
@@ -96,7 +116,9 @@
       "emoji": "🐻",
       "description": "知识世界旅行 · Bear 笔记迁移",
       "room": "study",
-      "track": "culture"
+      "track": "culture",
+      "flow": "out",
+      "media": ["text"]
     },
     {
       "id": "daily-meet-question",
@@ -105,7 +127,9 @@
       "emoji": "🎤",
       "description": "每日面试问答 · 知识点深挖",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "loop",
+      "media": ["text", "audio"]
     },
     {
       "id": "daily-design",
@@ -114,7 +138,9 @@
       "emoji": "🎨",
       "description": "视觉设计师审美认知系统",
       "room": "study",
-      "track": "culture"
+      "track": "culture",
+      "flow": "in",
+      "media": ["image", "text"]
     },
     {
       "id": "my-podcast",
@@ -122,7 +148,9 @@
       "url": "https://chenzhiheng.cn/my_podcast/",
       "emoji": "🎙️",
       "description": "才岁播客",
-      "room": "dining"
+      "room": "dining",
+      "flow": "out",
+      "media": ["audio"]
     },
     {
       "id": "english-system",
@@ -131,7 +159,9 @@
       "emoji": "🔤",
       "description": "英语四模块学习站",
       "room": "study",
-      "track": "voice"
+      "track": "voice",
+      "flow": "loop",
+      "media": ["text"]
     },
     {
       "id": "express-system",
@@ -140,7 +170,9 @@
       "emoji": "🗣️",
       "description": "表达系统",
       "room": "study",
-      "track": "voice"
+      "track": "voice",
+      "flow": "loop",
+      "media": ["text", "audio"]
     },
     {
       "id": "my-pipeline",
@@ -149,7 +181,9 @@
       "emoji": "⚙️",
       "description": "生活流水线章程 · 经验固化为可复用流程",
       "room": "study",
-      "track": "craft"
+      "track": "craft",
+      "flow": "out",
+      "media": ["text"]
     },
     {
       "id": "image-show",
@@ -157,7 +191,9 @@
       "url": "https://chenzhiheng.cn/image_show/",
       "emoji": "🖼️",
       "description": "个人图片画廊 · 系列精选",
-      "room": "bedroom"
+      "room": "bedroom",
+      "flow": "out",
+      "media": ["image"]
     },
     {
       "id": "plan-100",
@@ -165,7 +201,9 @@
       "url": "https://chenzhiheng.cn/plan_100/",
       "emoji": "📜",
       "description": "退休后的一百件事",
-      "room": "balcony"
+      "room": "balcony",
+      "flow": "out",
+      "media": ["text"]
     }
   ]
 }

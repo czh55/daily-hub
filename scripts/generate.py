@@ -131,6 +131,31 @@ TRACK_NAMES = {
 
 TRACK_ORDER = ["craft", "voice", "culture"]
 
+FLOW_NAMES = {
+    "in": "输入",
+    "out": "输出",
+    "loop": "进出",
+}
+
+MEDIA_NAMES = {
+    "text": "文字",
+    "audio": "声音",
+    "image": "图片",
+    "video": "视频",
+}
+
+MEDIA_ORDER = ["text", "audio", "image", "video"]
+
+
+def format_facets(flow: str, media: list[str]) -> str:
+    parts = []
+    if flow in FLOW_NAMES:
+        parts.append(FLOW_NAMES[flow])
+    for mid in MEDIA_ORDER:
+        if mid in media and mid in MEDIA_NAMES:
+            parts.append(MEDIA_NAMES[mid])
+    return " · ".join(parts)
+
 
 def _groups_for_pages(pages: list[dict]) -> list[dict]:
     by_track: dict[str, list[dict]] = {}
@@ -315,6 +340,8 @@ def generate() -> None:
             title = extract_title(html)
             if title:
                 updated_at = f"标题: {title}"
+        media = [m for m in page.get("media", []) if m in MEDIA_NAMES]
+        flow = page.get("flow", "") if page.get("flow") in FLOW_NAMES else ""
         page_data.append(
             {
                 "id": page["id"],
@@ -327,6 +354,9 @@ def generate() -> None:
                 "updated_at": updated_at,
                 "room": page.get("room", ""),
                 "track": page.get("track", ""),
+                "flow": flow,
+                "media": media,
+                "facets": format_facets(flow, media),
             }
         )
 
@@ -365,6 +395,9 @@ def generate() -> None:
                 "updated_at": p["updated_at"],
                 "room": p["room"],
                 "track": p.get("track", ""),
+                "flow": p.get("flow", ""),
+                "media": p.get("media", []),
+                "facets": p.get("facets", ""),
             }
             for p in page_data
         ],

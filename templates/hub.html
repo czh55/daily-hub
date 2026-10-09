@@ -20,6 +20,13 @@
     {% endfor %}
   </nav>
 
+  <nav class="hub-flow" aria-label="按进出筛选">
+    <button type="button" class="flow-btn is-on" data-flow="">全部</button>
+    <button type="button" class="flow-btn" data-flow="in">输入</button>
+    <button type="button" class="flow-btn" data-flow="out">输出</button>
+    <button type="button" class="flow-btn" data-flow="loop">进出</button>
+  </nav>
+
   <main class="hub">
     {% for room in rooms %}
     <section class="hub-room" id="room-{{ room.id }}">
@@ -28,8 +35,9 @@
         {% for group in room.groups %}
         <h3 class="hub-track">{{ group.name }}</h3>
         {% for page in group.pages %}
-        <a href="{{ page.url }}" class="hub-card" target="_blank" rel="noopener">
+        <a href="{{ page.url }}" class="hub-card" data-flow="{{ page.flow }}" target="_blank" rel="noopener">
           <p class="card-kicker">{{ page.name }}</p>
+          <p class="card-facets">{{ page.facets }}</p>
           <h3 class="card-title">{{ page.description }}</h3>
           <p class="card-snippet">{{ page.snippet }}</p>
           <p class="card-error">{{ page.error }}</p>
@@ -44,5 +52,41 @@
   <footer class="hub-footer">
     <p>自动更新于 {{ generated_at }} · <a href="./">房子首页</a> · <a href="archive/">往期归档</a></p>
   </footer>
+
+  <script>
+    (() => {
+      const buttons = document.querySelectorAll(".flow-btn");
+      const cards = document.querySelectorAll(".hub-card");
+      const rooms = document.querySelectorAll(".hub-room");
+      const tracks = document.querySelectorAll(".hub-track");
+
+      function applyFlow(flow) {
+        buttons.forEach((btn) => {
+          btn.classList.toggle("is-on", btn.dataset.flow === flow);
+        });
+        cards.forEach((card) => {
+          const match = !flow || card.dataset.flow === flow;
+          card.hidden = !match;
+        });
+        tracks.forEach((track) => {
+          let next = track.nextElementSibling;
+          let visible = false;
+          while (next && !next.classList.contains("hub-track")) {
+            if (next.classList.contains("hub-card") && !next.hidden) visible = true;
+            next = next.nextElementSibling;
+          }
+          track.hidden = !visible || !track.textContent.trim();
+        });
+        rooms.forEach((room) => {
+          const any = room.querySelector(".hub-card:not([hidden])");
+          room.hidden = !any;
+        });
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => applyFlow(btn.dataset.flow || ""));
+      });
+    })();
+  </script>
 </body>
 </html>
