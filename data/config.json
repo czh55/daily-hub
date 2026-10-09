@@ -150,6 +150,22 @@
       "description": "生活流水线章程 · 经验固化为可复用流程",
       "room": "study",
       "track": "craft"
+    },
+    {
+      "id": "image-show",
+      "name": "Image Show",
+      "url": "https://chenzhiheng.cn/image_show/",
+      "emoji": "🖼️",
+      "description": "个人图片画廊 · 系列精选",
+      "room": "bedroom"
+    },
+    {
+      "id": "plan-100",
+      "name": "Plan 100",
+      "url": "https://chenzhiheng.cn/plan_100/",
+      "emoji": "📜",
+      "description": "退休后的一百件事",
+      "room": "balcony"
     }
   ]
 }

@@ -540,7 +540,7 @@ function buildBedroom(THREE, house, mats) {
   bed.add(box(THREE, 0.5, 0.14, 0.32, mats.linen, 0.38, 0.5, -0.78));
   bed.add(box(THREE, 1.55, 0.55, 0.08, mats.oak, 0, 0.5, -1.02));
   bed.position.set(-0.85, 0, 0.05);
-  mark(bed, { type: "hotspot", roomId: "bedroom", contentIds: ["daily-photos"] });
+  mark(bed, { type: "hotspot", roomId: "bedroom", contentIds: ["daily-photos", "image-show"] });
   g.add(bed);
 
   g.add(box(THREE, 0.4, 0.48, 0.4, mats.oak, -1.75, 0.24, -0.85));
@@ -566,7 +566,7 @@ function buildBedroom(THREE, house, mats) {
     f.rotation.y = -Math.PI / 2;
     frames.add(f);
   }
-  mark(frames, { type: "hotspot", roomId: "bedroom", contentIds: ["daily-photos"] });
+  mark(frames, { type: "hotspot", roomId: "bedroom", contentIds: ["daily-photos", "image-show"] });
   g.add(frames);
 
   const cam = new THREE.Group();
@@ -599,14 +599,14 @@ function buildBalcony(THREE, house, mats) {
   chair(0.7, 0.35, -0.8);
 
   const map = box(THREE, 0.32, 0.01, 0.22, mats.moss, 0.2, 0.56, 0.08);
-  mark(map, { type: "hotspot", roomId: "balcony", contentIds: ["tour-map"] });
+  mark(map, { type: "hotspot", roomId: "balcony", contentIds: ["tour-map", "plan-100"] });
   g.add(map);
 
   const tripod = new THREE.Group();
   tripod.add(box(THREE, 0.03, 0.95, 0.03, mats.metalMatte, 0, 0.48, 0));
   tripod.add(box(THREE, 0.16, 0.05, 0.1, mats.metalMatte, 0, 0.98, 0));
   tripod.position.set(-1.55, 0, 0.85);
-  mark(tripod, { type: "hotspot", roomId: "balcony", contentIds: ["daily-photos"] });
+  mark(tripod, { type: "hotspot", roomId: "balcony", contentIds: ["daily-photos", "image-show"] });
   g.add(tripod);
 
   const p1 = plant(THREE, mats, 1.05);

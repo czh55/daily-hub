@@ -95,6 +95,14 @@ export const CONTENTS = {
     rooms: ["bedroom", "balcony"],
     fallback: "墙上的光，和阳台上刚举起的那一次。",
   },
+  "image-show": {
+    id: "image-show",
+    name: "图片画廊",
+    description: "个人图片画廊 · 系列精选",
+    url: "https://chenzhiheng.cn/image_show/",
+    rooms: ["bedroom", "balcony"],
+    fallback: "按系列摆开的照片，比日更更适合慢慢看。",
+  },
   "daily-algo": {
     id: "daily-algo",
     name: "算法题目",
@@ -233,6 +241,14 @@ export const CONTENTS = {
     rooms: ["balcony"],
     fallback: "蓝调天色里，下一趟路开始显形。",
   },
+  "plan-100": {
+    id: "plan-100",
+    name: "一百件事",
+    description: "退休后的一百件事",
+    url: "https://chenzhiheng.cn/plan_100/",
+    rooms: ["balcony"],
+    fallback: "从日常念头里，慢慢凑齐一百件值得去做的事。",
+  },
 };
 
 /**
@@ -249,9 +265,9 @@ export const DAY_STOPS = [
     via: [],
     camera: [ -1.6, 4.6, 2.4 ],
     lookAt: [ -3.6, 0.7, 0.45 ],
-    contentIds: ["daily-photos"],
+    contentIds: ["daily-photos", "image-show"],
     narrative:
-      "窗帘缝里还是冷蓝。他坐起来，目光先落到墙上那几张照片——昨天的光，今天还在。",
+      "窗帘缝里还是冷蓝。他坐起来，目光先落到墙上那几张照片——昨天的光，今天还在。系列画廊也在同一面墙上。",
   },
   {
     id: "wash",
@@ -402,9 +418,9 @@ export const DAY_STOPS = [
     ],
     camera: [ -0.6, 4.8, 1.4 ],
     lookAt: [ -3.6, 0.7, 3.55 ],
-    contentIds: ["tour-map", "daily-photos"],
+    contentIds: ["tour-map", "daily-photos", "image-show", "plan-100"],
     narrative:
-      "天色沉成蓝调。西边只剩一层薄暖。他站在栏杆边想下一趟路，偶尔举起相机。房子此刻最像他本人。",
+      "天色沉成蓝调。西边只剩一层薄暖。他站在栏杆边想下一趟路，也记下退休后想做的那一百件事，偶尔举起相机。房子此刻最像他本人。",
   },
   {
     id: "cook-evening",
@@ -450,7 +466,7 @@ export const DAY_STOPS = [
     ],
     camera: [ -1.5, 4.4, 2.5 ],
     lookAt: [ -3.6, 0.65, 0.45 ],
-    contentIds: ["daily-photos"],
+    contentIds: ["daily-photos", "image-show"],
     narrative:
       "墙上的照片暗下来。他躺下之前，房间把这一天轻轻收好。明天会再从同一面墙开始。",
   },

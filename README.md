@@ -8,13 +8,13 @@
 
 | 房间 | 一天里的位置 | 对应分享 |
 |------|--------------|----------|
-| 卧室 | 07:00 醒来 / 22:40 睡前 | 摄影分享 |
+| 卧室 | 07:00 醒来 / 22:40 睡前 | 摄影分享 / 图片画廊 |
 | 卫生间 | 07:25 洗漱 | 生活场景 |
 | 厨房 | 07:50 早餐 / 19:00 晚饭 | 生活场景 |
 | 餐厅 | 08:15 早餐听播客 | 播客记录 / 才岁播客 |
 | 书房 | 上午：算法、面试、技术、AI、流水线、语言、笔记、审美 | 算法 / 面试口述 / 表达系统 / 技术学习 / DayAI / My Pipeline / 语言 / 英语四模块 / Bear2Cursor / 审美训练 |
 | 客厅 | 下午与夜里：音乐、视频、剧集 | 歌词 / 视频总结 / 影视分析 |
-| 阳台 | 17:40 蓝调时刻 | 旅行攻略 / 摄影 |
+| 阳台 | 17:40 蓝调时刻 | 旅行攻略 / 摄影 / 图片画廊 / 一百件事 |
 
 ## 子页面
 
@@ -37,6 +37,8 @@
 | English System | https://chenzhiheng.cn/english-system/ |
 | Express System | https://chenzhiheng.cn/express_system/ |
 | My Pipeline | https://chenzhiheng.cn/my_pipeline/pipelines/ |
+| Image Show | https://chenzhiheng.cn/image_show/ |
+| Plan 100 | https://chenzhiheng.cn/plan_100/ |
 
 ## 项目结构
 
