@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-07 21:53:03",
-  "date": "2026-10-07",
+  "generated_at": "2026-10-09 22:17:29",
+  "date": "2026-10-09",
   "pages": [
     {
       "id": "daily-photos",
@@ -188,6 +188,28 @@
       "updated_at": "标题: 全部章程 · my_pipeline",
       "room": "study",
       "track": "craft"
+    },
+    {
+      "id": "image-show",
+      "name": "Image Show",
+      "url": "https://chenzhiheng.cn/image_show/",
+      "description": "个人图片画廊 · 系列精选",
+      "snippet": "精选照片的个人编辑式画廊，托管于 GitHub Pages。",
+      "error": "",
+      "updated_at": "标题: Image Show · 个人图片画廊",
+      "room": "bedroom",
+      "track": ""
+    },
+    {
+      "id": "plan-100",
+      "name": "Plan 100",
+      "url": "https://chenzhiheng.cn/plan_100/",
+      "description": "退休后的一百件事",
+      "snippet": "退休后的一百件事 —— 从日常念头里，慢慢凑齐一百件值得去做的事",
+      "error": "",
+      "updated_at": "标题: 退休后的一百件事",
+      "room": "balcony",
+      "track": ""
     }
   ]
 }
