@@ -238,6 +238,17 @@ export const CONTENTS = {
     media: ["image", "text"],
     fallback: "先看差异，再读清单。感觉要练成判断力。",
   },
+  "weekly-topic": {
+    id: "weekly-topic",
+    name: "每周主题",
+    description: "精读总结 · 知识脉络图",
+    url: "https://chenzhiheng.cn/weekly_topic/",
+    rooms: ["study"],
+    track: "culture",
+    flow: "loop",
+    media: ["text", "image"],
+    fallback: "一周只追一个主题，读透了，再画成一张脉络图。",
+  },
   "my-pipeline": {
     id: "my-pipeline",
     name: "流水线章程",
@@ -427,7 +438,7 @@ export const DAY_STOPS = [
     via: [[-2.6, -3.5]],
     camera: [ -0.8, 4.3, -1.5 ],
     lookAt: [ -3.2, 0.85, -3.4 ],
-    contentIds: ["english-system", "language-paraphrase", "express-system", "bear2cursor", "daily-design"],
+    contentIds: ["english-system", "language-paraphrase", "express-system", "bear2cursor", "daily-design", "weekly-topic"],
     narrative:
       "换口气。英语四模块把嘴打开，表达系统接着练。再迁一条旧笔记，看一组配色和留白。",
   },

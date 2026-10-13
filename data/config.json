@@ -204,6 +204,17 @@
       "room": "balcony",
       "flow": "out",
       "media": ["text"]
+    },
+    {
+      "id": "weekly-topic",
+      "name": "Weekly Topic",
+      "url": "https://chenzhiheng.cn/weekly_topic/",
+      "emoji": "🗓️",
+      "description": "每周主题 · 精读总结与知识脉络图",
+      "room": "study",
+      "track": "culture",
+      "flow": "loop",
+      "media": ["text", "image"]
     }
   ]
 }

@@ -519,7 +519,7 @@ function buildStudy(THREE, house, mats) {
   rest.add(box(THREE, 0.16, 0.02, 0.12, mats.linen, -0.08, 0.37, 0.02));
   rest.add(box(THREE, 0.11, 0.03, 0.15, mats.moss, 0.12, 0.38, -0.04));
   rest.position.set(1.28, 0, 1.18);
-  mark(rest, { type: "hotspot", roomId: "study", track: "culture", contentIds: ["bear2cursor", "daily-design"] });
+  mark(rest, { type: "hotspot", roomId: "study", track: "culture", contentIds: ["bear2cursor", "daily-design", "weekly-topic"] });
   g.add(rest);
 
   const p = plant(THREE, mats, 0.95);

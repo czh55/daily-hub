@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-09 22:57:17",
-  "date": "2026-10-09",
+  "generated_at": "2026-10-13 21:51:02",
+  "date": "2026-10-13",
   "pages": [
     {
       "id": "daily-photos",
@@ -312,6 +312,23 @@
         "text"
       ],
       "facets": "输出 · 文字"
+    },
+    {
+      "id": "weekly-topic",
+      "name": "Weekly Topic",
+      "url": "https://chenzhiheng.cn/weekly_topic/",
+      "description": "每周主题 · 精读总结与知识脉络图",
+      "snippet": "一周一个特定主题，牵引完成学习总结。",
+      "error": "",
+      "updated_at": "标题: 每周主题 · Weekly Topic",
+      "room": "study",
+      "track": "culture",
+      "flow": "loop",
+      "media": [
+        "text",
+        "image"
+      ],
+      "facets": "进出 · 文字 · 图片"
     }
   ]
 }
