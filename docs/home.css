@@ -113,6 +113,16 @@ body {
   color: var(--ink);
 }
 
+.brand .tagline {
+  margin-top: 8px;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+
 .brand .meta {
   margin-top: var(--space-1);
   font-size: 0.78rem;
