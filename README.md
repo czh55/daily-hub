@@ -12,7 +12,7 @@
 | 卫生间 | 07:25 洗漱 | 生活场景 |
 | 厨房 | 07:50 早餐 / 19:00 晚饭 | 生活场景 |
 | 餐厅 | 08:15 早餐听播客 | 播客记录 / 才岁播客 |
-| 书房 | 上午：算法、面试、技术、AI、流水线、语言、笔记、审美、每周主题 | 算法 / 面试口述 / 表达系统 / 技术学习 / DayAI / My Pipeline / 语言 / 英语四模块 / Bear2Cursor / 审美训练 / 每周主题 |
+| 书房 | 上午：算法、面试、技术、流水线、语言、笔记、审美、每周主题 | 算法 / 面试口述 / 表达系统 / 技术学习 / My Pipeline / 语言 / 英语四模块 / Bear2Cursor / 审美训练 / 每周主题 |
 | 客厅 | 下午与夜里：音乐、视频、剧集 | 歌词 / 视频总结 / 影视分析 |
 | 阳台 | 17:40 蓝调时刻 | 旅行攻略 / 摄影 / 图片画廊 / 一百件事 |
 
@@ -37,7 +37,6 @@
 | Audio Workshop | https://chenzhiheng.cn/audio-workshop/ |
 | Daily Lyric Learning | https://chenzhiheng.cn/daily-lyric-learning/ |
 | Daily Tech Learning | https://chenzhiheng.cn/daily-tech-learning/ |
-| DayAI | https://chenzhiheng.cn/DayAI/ |
 | Video Notes | https://chenzhiheng.cn/video-notes/ |
 | Language Paraphrase | https://chenzhiheng.cn/language_paraphrase/ |
 | Drama Analysis | https://chenzhiheng.cn/drama-analysis/ |

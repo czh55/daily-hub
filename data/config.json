@@ -58,17 +58,6 @@
       "media": ["text"]
     },
     {
-      "id": "dayai",
-      "name": "DayAI",
-      "url": "https://chenzhiheng.cn/DayAI/",
-      "emoji": "🤖",
-      "description": "AI 实践记录",
-      "room": "study",
-      "track": "craft",
-      "flow": "loop",
-      "media": ["text"]
-    },
-    {
       "id": "video-notes",
       "name": "Video Notes",
       "url": "https://chenzhiheng.cn/video-notes/",

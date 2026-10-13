@@ -183,17 +183,6 @@ export const CONTENTS = {
     media: ["text"],
     fallback: "把今天新懂的那一层，写成增量知识。",
   },
-  dayai: {
-    id: "dayai",
-    name: "AI 实践",
-    description: "AI 实践与行业记录",
-    url: "https://chenzhiheng.cn/DayAI/",
-    rooms: ["study"],
-    track: "craft",
-    flow: "loop",
-    media: ["text"],
-    fallback: "工具在变，他记下正在发生的事。",
-  },
   "language-paraphrase": {
     id: "language-paraphrase",
     name: "语言学习",
@@ -425,9 +414,9 @@ export const DAY_STOPS = [
     via: [[-3.7, -3.2]],
     camera: [ -1.35, 4.4, -1.0 ],
     lookAt: [ -3.75, 0.8, -3.2 ],
-    contentIds: ["daily-tech-learning", "dayai", "my-pipeline"],
+    contentIds: ["daily-tech-learning", "my-pipeline"],
     narrative:
-      "还是硬功。屏幕亮着，他把今天新懂的一层写成增量，也记下工具和行业里正在发生的事；偶尔把一次经历固化成可再跑的流水线。",
+      "还是硬功。屏幕亮着，他把今天新懂的一层写成增量；偶尔把一次经历固化成可再跑的流水线。",
   },
   {
     id: "notes",

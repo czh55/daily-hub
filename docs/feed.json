@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13 21:51:02",
+  "generated_at": "2026-10-13 21:52:34",
   "date": "2026-10-13",
   "pages": [
     {
@@ -76,22 +76,6 @@
       "snippet": "📚 每日技术深度总结",
       "error": "",
       "updated_at": "标题: 每日技术学习 · AI 增量知识库",
-      "room": "study",
-      "track": "craft",
-      "flow": "loop",
-      "media": [
-        "text"
-      ],
-      "facets": "进出 · 文字"
-    },
-    {
-      "id": "dayai",
-      "name": "DayAI",
-      "url": "https://chenzhiheng.cn/DayAI/",
-      "description": "AI 实践记录",
-      "snippet": "DayAI — 每日 AI 资讯总结，Claude Code、Cursor、Codex 与国内行业动态",
-      "error": "",
-      "updated_at": "标题: DayAI 每日资讯",
       "room": "study",
       "track": "craft",
       "flow": "loop",
